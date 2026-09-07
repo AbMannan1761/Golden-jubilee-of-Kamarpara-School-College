@@ -157,15 +157,15 @@ export function getStoredRegistrations(): AlumniRegistration[] {
 
 // Google Sheet Web App Endpoint (configurable)
 export const GOOGLE_SHEET_WEBAPP_KEY = "jubilee_google_sheet_webapp_url";
+export const DEFAULT_GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxnyox8U6qk1LjjD1Fq4VNaiSTM-7yOaY34ddrPZu_HoThzLt0f-1L6OQpnPnulfFFdOg/exec";
 
 export async function syncToGoogleSheet(record: AlumniRegistration): Promise<boolean> {
   let endpoint = process.env.NEXT_PUBLIC_GOOGLE_SHEET_API_URL || "";
   if (typeof window !== "undefined" && !endpoint) {
-    endpoint = localStorage.getItem(GOOGLE_SHEET_WEBAPP_KEY) || "";
+    endpoint = localStorage.getItem(GOOGLE_SHEET_WEBAPP_KEY) || DEFAULT_GOOGLE_SHEET_WEBAPP_URL;
   }
   if (!endpoint) {
-    console.log("No Google Sheet Web App URL configured. Saved locally.");
-    return false;
+    endpoint = DEFAULT_GOOGLE_SHEET_WEBAPP_URL;
   }
 
   try {

@@ -907,7 +907,8 @@
       saveRegistrations(list);
 
       // Post to Google Sheet Master & Google Drive Folder
-      const googleSheetWebAppUrl = localStorage.getItem("jubilee_google_sheet_webapp_url") || "";
+      const DEFAULT_GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxnyox8U6qk1LjjD1Fq4VNaiSTM-7yOaY34ddrPZu_HoThzLt0f-1L6OQpnPnulfFFdOg/exec";
+      const googleSheetWebAppUrl = localStorage.getItem("jubilee_google_sheet_webapp_url") || DEFAULT_GOOGLE_SHEET_URL;
       if (googleSheetWebAppUrl) {
         fetch(googleSheetWebAppUrl, {
           method: "POST",
@@ -1119,9 +1120,10 @@
     }
 
     async function syncAllToGoogleSheet() {
+      const DEFAULT_GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxnyox8U6qk1LjjD1Fq4VNaiSTM-7yOaY34ddrPZu_HoThzLt0f-1L6OQpnPnulfFFdOg/exec";
       const savedUrl = localStorage.getItem("jubilee_google_sheet_webapp_url");
       const inputUrl = document.getElementById('admin-sheet-api-url') ? document.getElementById('admin-sheet-api-url').value.trim() : "";
-      const url = inputUrl || savedUrl;
+      const url = inputUrl || savedUrl || DEFAULT_GOOGLE_SHEET_URL;
       if (!url) {
         alert("প্রথমে গুগল ওয়েব অ্যাপ URL প্রদান করুন।");
         return;
@@ -1174,12 +1176,13 @@
       }
       renderCoordinators(COORDINATORS);
 
-      const savedSheetUrl = localStorage.getItem("jubilee_google_sheet_webapp_url");
+      const DEFAULT_GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxnyox8U6qk1LjjD1Fq4VNaiSTM-7yOaY34ddrPZu_HoThzLt0f-1L6OQpnPnulfFFdOg/exec";
+      const savedSheetUrl = localStorage.getItem("jubilee_google_sheet_webapp_url") || DEFAULT_GOOGLE_SHEET_URL;
       if (savedSheetUrl && document.getElementById('admin-sheet-api-url')) {
         document.getElementById('admin-sheet-api-url').value = savedSheetUrl;
         const stat = document.getElementById('admin-sheet-sync-status');
         if (stat) {
-          stat.innerText = "✓ Web App URL সংরক্ষিত আছে এবং ক্লাউড সিঙ্ক সক্রিয়।";
+          stat.innerText = "✓ Google Sheet ও Drive ক্লাউড সিঙ্ক সক্রিয় রয়েছে।";
           stat.className = "text-[11px] text-emerald-700 font-bold";
         }
       }
