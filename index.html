@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>সুবর্ণ জয়ন্তী ও প্রাক্তন শিক্ষার্থী পুনর্মিলনী | Golden Jubilee & Alumni Reunion</title>
+  
+  <!-- Google Fonts: Hind Siliguri & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            sans: ['"Inter"', '"Hind Siliguri"', 'sans-serif'],
+          },
+          colors: {
+            festive: {
+              crimson: '#991B1B',
+              gold: '#D97706',
+              amber: '#F59E0B',
+              emerald: '#065F46',
+              dark: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Canvas Confetti & QRCode.js -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-badge-area, #printable-badge-area * {
+        visibility: visible;
+      }
+      #printable-badge-area {
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        transform: translateX(-50%);
+        width: 380px !important;
+        margin: 0 auto;
+        box-shadow: none !important;
+        border: 2px solid #b45309 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- 1. TOP NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" onclick="showSection('home')" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+            <i data-lucide="award" class="w-7 h-7 text-amber-100"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
+                সুবর্ণ জয়ন্তী ও পুনর্মিলনী
+              </span>
+              <span class="text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full border border-amber-300">
+                ৫০ বছর
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 font-medium">Golden Jubilee & Grand Alumni Reunion</p>
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <button onclick="showSection('home')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-slate-400"></i> মূল পাতা
+          </button>
+          <button onclick="scrollToCoordinators()" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="users" class="w-4 h-4 text-slate-400"></i> ব্যাচ সমন্বয়ক
+          </button>
+          <button onclick="scrollToNotices()" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="bell" class="w-4 h-4 text-slate-400"></i> নোটিশ
+          </button>
+          <button onclick="showSection('register')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 shadow-md shadow-amber-500/25 hover:scale-105 transition-all">
+            <i data-lucide="user-plus" class="w-4 h-4"></i> রেজিস্ট্রেশন করুন
+          </button>
+          <button onclick="showSection('badge-search')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="id-card" class="w-4 h-4 text-slate-400"></i> ই-ব্যাজ
+          </button>
+          <button onclick="showSection('admin')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-4 h-4 text-slate-400"></i> অ্যাডমিন
+          </button>
+        </nav>
+
+        <!-- Mobile Menu toggle -->
+        <div class="flex md:hidden">
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-xl text-slate-600 hover:bg-slate-100">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-amber-100 bg-white px-4 pt-2 pb-6 space-y-2">
+      <button onclick="showSection('home'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-slate-700 flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i> মূল পাতা
+      </button>
+      <button onclick="scrollToCoordinators(); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-slate-700 flex items-center gap-2">
+        <i data-lucide="users" class="w-4 h-4 text-amber-600"></i> ব্যাচ সমন্বয়ক
+      </button>
+      <button onclick="showSection('register'); toggleMobileMenu()" class="w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-red-600 to-amber-600 shadow-md">
+        রেজিস্ট্রেশন করুন
+      </button>
+      <button onclick="showSection('badge-search'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-slate-700 flex items-center gap-2">
+        <i data-lucide="id-card" class="w-4 h-4 text-amber-600"></i> ই-ব্যাজ / স্লিপ
+      </button>
+      <button onclick="showSection('admin'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-slate-700 flex items-center gap-2">
+        <i data-lucide="shield-check" class="w-4 h-4 text-amber-600"></i> অ্যাডমিন প্যানেল
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER (SPA Sections) -->
+  <main class="flex-grow">
+
+    <!-- ==================== SECTION: HOME ==================== -->
+    <div id="sec-home">
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-lg shadow-amber-500/10">
+            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+            <span>১৯৭৬ - ২০২৬ • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস</span>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight sm:leading-none">
+            <span class="block text-white">সুবর্ণ জয়ন্তী ও</span>
+            <span class="block mt-2 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
+              প্রাক্তন শিক্ষার্থী পুনর্মিলনী
+            </span>
+          </h1>
+
+          <p class="mt-4 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
+            স্মৃতির মায়ায় আবার বাঁধিব সুর, ফিরে চল চিরচেনা সেই প্রিয় প্রাঙ্গণে। ৫০ বছর পূর্তির আনন্দ উৎসবে সকল প্রাক্তন শিক্ষার্থীদের প্রাণঢালা আমন্ত্রণ।
+          </p>
+
+          <!-- Date & Venue -->
+          <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-300 bg-white/5 border border-white/10 px-5 py-2.5 rounded-2xl backdrop-blur-md">
+            <span class="flex items-center gap-1.5 text-amber-300 font-bold">
+              <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+              ২২ ও ২৩ জানুয়ারি
+            </span>
+            <span class="hidden sm:inline text-slate-500">•</span>
+            <span class="flex items-center gap-1.5 font-medium">
+              <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>
+              বিদ্যালয় মূল প্রাঙ্গণ ও অডিটোরিয়াম
+            </span>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="w-full max-w-3xl mx-auto my-8 p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-amber-500/40 shadow-2xl backdrop-blur-xl">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-4">
+              <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+              <span>মহাউৎসবের ক্ষণগণনা (২২ ও ২৩ জানুয়ারি)</span>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3 sm:gap-4 w-full">
+              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
+                <span id="timer-days" class="text-3xl sm:text-5xl font-black text-white">১৩৭</span>
+                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">দিন</span>
+              </div>
+              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
+                <span id="timer-hours" class="text-3xl sm:text-5xl font-black text-white">২২</span>
+                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">ঘণ্টা</span>
+              </div>
+              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
+                <span id="timer-minutes" class="text-3xl sm:text-5xl font-black text-white">৪৮</span>
+                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">মিনিট</span>
+              </div>
+              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
+                <span id="timer-seconds" class="text-3xl sm:text-5xl font-black text-white">১৯</span>
+                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">সেকেন্ড</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onclick="showSection('register')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-base shadow-xl shadow-amber-500/25 hover:scale-105 transition-all">
+              <i data-lucide="user-plus" class="w-5 h-5"></i>
+              <span>অনলাইন রেজিস্ট্রেশন করুন</span>
+            </button>
+            <button onclick="showSection('badge-search')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base backdrop-blur-md hover:scale-105 transition-all">
+              <i data-lucide="id-card" class="w-5 h-5 text-amber-400"></i>
+              <span>ই-ব্যাজ / স্লিপ সংগ্রহ</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Ticker -->
+      <section class="bg-amber-500 py-6 border-b border-amber-600 text-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div><span class="block text-3xl font-black">৫০ বছর</span><span class="text-xs sm:text-sm font-bold text-amber-950">গৌরব ও ঐতিহ্যের পদচিহ্ন</span></div>
+            <div><span class="block text-3xl font-black">১৯৭০-২০২৬</span><span class="text-xs sm:text-sm font-bold text-amber-950">সকল ব্যাচের মিলনমেলা</span></div>
+            <div><span class="block text-3xl font-black">৩,০০০+</span><span class="text-xs sm:text-sm font-bold text-amber-950">প্রত্যাশিত প্রাক্তন শিক্ষার্থী</span></div>
+            <div><span class="block text-3xl font-black">২ দিনব্যাপী</span><span class="text-xs sm:text-sm font-bold text-amber-950">উৎসব ও সাংস্কৃতিক মেগা সন্ধ্যা</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notice Board -->
+      <section id="notices-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-800 text-xs font-semibold mb-3">
+              <i data-lucide="bell" class="w-3.5 h-3.5"></i> জরুরী নোটিশ
+            </span>
+            <h2 class="text-3xl font-black text-slate-900">গুরুত্বপূর্ণ তথ্যাবলী ও উৎসব নির্দেশিকা</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="p-6 rounded-2xl bg-red-50/80 border-2 border-red-200">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-red-600 text-white">জরুরী ঘোষণা</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-3 mb-1">অনলাইন রেজিস্ট্রেশনের সময়সীমা</h3>
+              <p class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded inline-block mb-2">১৫ নভেম্বর - ৩১ ডিসেম্বর ২০২৬</p>
+              <p class="text-sm text-slate-600">নির্দিষ্ট সময়ের মধ্যে অনলাইনে ফর্ম পূরণ ও টি-শার্ট সাইজ নিশ্চিত করতে অনুরোধ করা যাচ্ছে।</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-amber-50/80 border-2 border-amber-200">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-600 text-white">ফি সংক্রান্ত</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-3 mb-1">রেজিস্ট্রেশন ফি ও অতিথিদের তথ্য</h3>
+              <p class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded inline-block mb-2">ফি: ১,০০০ টাকা</p>
+              <p class="text-sm text-slate-600">মূল অ্যালামনাই ফি ১,০০০ টাকা। অতিরিক্ত প্রতি পরিবারের সদস্য/অতিথির জন্য ৫০০ টাকা।</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-yellow-50/80 border-2 border-yellow-300">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-700 text-white">ইভেন্ট সূচি</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-3 mb-1">সুবর্ণ জয়ন্তী মূল উৎসবের তারিখ</h3>
+              <p class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded inline-block mb-2">২২ ও ২৩ জানুয়ারি ২০২৭</p>
+              <p class="text-sm text-slate-600">১ম দিন বর্ণাঢ্য আনন্দ র‍্যালি ও স্মৃতিচারণ। ২য় দিন গুণীজন সংবর্ধনা ও সাংস্কৃতিক সন্ধ্যা।</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-200 text-slate-700">মিটিং</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-3 mb-1">ব্যাচ সমন্বয়কদের সাথে সাধারণ সভা</h3>
+              <p class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded inline-block mb-2">প্রতি শুক্রবার বিকাল ৪:০০ টা</p>
+              <p class="text-sm text-slate-600">বিদ্যালয় অডিটোরিয়ামে সুবর্ণ জয়ন্তী প্রস্তুতি কমিটির সাপ্তাহিক ফলোআপ ও সমন্বয় সভা অনুষ্ঠিত হবে।</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Batch Coordinator Directory -->
+      <section id="coordinators-section" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold mb-3">
+              <i data-lucide="users" class="w-3.5 h-3.5 text-amber-600"></i> সমন্বয়ক তালিকা
+            </span>
+            <h2 class="text-3xl font-black text-slate-900">ব্যাচ সমন্বয়কবৃন্দ</h2>
+            <p class="mt-2 text-slate-600 text-sm">আপনার ব্যাচের রেজিস্ট্রেশন সংক্রান্ত তথ্যের জন্য সংশ্লিষ্ট ব্যাচ সমন্বয়কের সাথে যোগাযোগ করুন।</p>
+          </div>
+
+          <!-- Search & Filters -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
+              <button onclick="filterCoordinators('all')" class="coord-filter active px-4 py-2 rounded-xl text-xs font-bold bg-red-700 text-white">সকল ব্যাচ</button>
+              <button onclick="filterCoordinators('80s')" class="coord-filter px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">৮০-এর দশক</button>
+              <button onclick="filterCoordinators('90s')" class="coord-filter px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">৯০-এর দশক</button>
+              <button onclick="filterCoordinators('2000s')" class="coord-filter px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">২০০০-এর দশক</button>
+              <button onclick="filterCoordinators('2010s')" class="coord-filter px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">২০১০ ও পরবর্তী</button>
+            </div>
+            <div class="relative w-full sm:w-72">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <input type="text" id="coord-search" oninput="searchCoordinators()" placeholder="ব্যাচ বা সমন্বয়ক খুঁজুন..." class="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 outline-none">
+            </div>
+          </div>
+
+          <!-- Coordinator Cards Grid -->
+          <div id="coordinator-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- ==================== SECTION: REGISTER ==================== -->
+    <div id="sec-register" class="hidden py-10 bg-slate-50">
+      <div class="max-w-3xl mx-auto px-4">
+        <button onclick="showSection('home')" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-red-700 mb-6">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> মূল পাতায় ফিরে যান
+        </button>
+
+        <div class="bg-white rounded-3xl shadow-xl border border-amber-200/80 overflow-hidden">
+          <!-- Form Header -->
+          <div class="bg-gradient-to-r from-red-900 via-amber-800 to-red-900 p-6 sm:p-8 text-white">
+            <span class="text-xs bg-amber-400/20 text-amber-300 px-3 py-1 rounded-full border border-amber-400/30 font-semibold inline-block mb-2">অনলাইন ফর্ম</span>
+            <h1 class="text-2xl sm:text-3xl font-black">অ্যালামনাই রেজিস্ট্রেশন ফরম</h1>
+            <p class="text-amber-100/90 text-sm mt-1">সুবর্ণ জয়ন্তী ও পুনর্মিলনীতে অংশগ্রহণের জন্য নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন।</p>
+          </div>
+
+          <!-- Form Body -->
+          <form id="registration-form" onsubmit="handleRegistrationSubmit(event)" class="p-6 sm:p-8 space-y-6">
+            <!-- 1. Personal -->
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+                <i data-lucide="user" class="w-5 h-5 text-amber-600"></i> ১. ব্যক্তিগত পরিচিতি
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">পুরো নাম (বাংলায়) *</label>
+                  <input type="text" id="reg-name-bn" required placeholder="যেমন: মোঃ আব্দুল্লাহ" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Full Name (In English) *</label>
+                  <input type="text" id="reg-name-en" required placeholder="e.g. Md. Abdullah" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">এসএসসি/উত্তীর্ণের ব্যাচ *</label>
+                  <select id="reg-batch" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white outline-none focus:ring-2 focus:ring-amber-500">
+                    <!-- Options generated in JS -->
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">মোবাইল নম্বর *</label>
+                  <input type="tel" id="reg-phone" required placeholder="017XXXXXXXX" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">পেশা *</label>
+                  <input type="text" id="reg-profession" required placeholder="যেমন: প্রকৌশলী / ব্যবসায়ী / চাকরিজীবী" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">বর্তমান ঠিকানা *</label>
+                  <input type="text" id="reg-address" required placeholder="যেমন: ধানমন্ডি, ঢাকা" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. T-Shirt & Guests -->
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+                <i data-lucide="shirt" class="w-5 h-5 text-amber-600"></i> ২. টি-শার্ট ও অতিথিদের সংখ্যা
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                  <label class="block text-xs font-bold text-slate-700 mb-2">টি-শার্ট সাইজ নির্বাচন করুন *</label>
+                  <div class="grid grid-cols-5 gap-2">
+                    <button type="button" onclick="setTShirtSize('S')" class="tshirt-btn py-2 rounded-xl text-xs font-bold border border-slate-300 bg-white">S</button>
+                    <button type="button" onclick="setTShirtSize('M')" class="tshirt-btn py-2 rounded-xl text-xs font-bold border border-slate-300 bg-white">M</button>
+                    <button type="button" onclick="setTShirtSize('L')" class="tshirt-btn active py-2 rounded-xl text-xs font-bold bg-amber-600 text-white shadow">L</button>
+                    <button type="button" onclick="setTShirtSize('XL')" class="tshirt-btn py-2 rounded-xl text-xs font-bold border border-slate-300 bg-white">XL</button>
+                    <button type="button" onclick="setTShirtSize('XXL')" class="tshirt-btn py-2 rounded-xl text-xs font-bold border border-slate-300 bg-white">XXL</button>
+                  </div>
+                </div>
+
+                <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200">
+                  <label class="block text-xs font-bold text-slate-700 mb-1">অতিরিক্ত পরিবার সদস্য/অতিথি (+৫০০ টাকা/জন)</label>
+                  <div class="flex items-center gap-3 mt-2">
+                    <button type="button" onclick="updateGuestCount(-1)" class="w-9 h-9 rounded-xl bg-white border border-amber-300 font-bold text-lg">-</button>
+                    <span id="guest-count-display" class="w-10 text-center text-xl font-black text-slate-900">০</span>
+                    <button type="button" onclick="updateGuestCount(1)" class="w-9 h-9 rounded-xl bg-white border border-amber-300 font-bold text-lg">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Payment -->
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+                <i data-lucide="credit-card" class="w-5 h-5 text-amber-600"></i> ৩. ফি ও পেমেন্ট
+              </h2>
+
+              <div class="bg-slate-900 text-white p-5 rounded-2xl flex items-center justify-between mb-4">
+                <div>
+                  <span class="text-xs text-slate-400 block">মোট প্রদেয় ফি:</span>
+                  <span id="total-fee-display" class="text-2xl font-black text-amber-400">৳১,০০০</span>
+                </div>
+                <div class="text-xs text-right text-emerald-400 font-semibold">
+                  <p>✓ টি-শার্ট ও উপহার ম্যাগাজিন</p>
+                  <p>✓ গ্র্যান্ড বুফে ভোজ অন্তর্ভুক্ত</p>
+                </div>
+              </div>
+
+              <!-- Payment Method Select -->
+              <div class="space-y-3">
+                <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-300 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs font-bold text-amber-900 block">বিকাশ / নগদ নম্বর (সেন্ড মানি):</span>
+                    <span class="text-base font-black text-slate-900 font-mono">01711234567</span>
+                  </div>
+                  <button type="button" onclick="copyNumber('01711234567')" class="px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-xs font-bold text-slate-800">কপি নম্বর</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">প্রেরক মোবাইল নম্বর (Sender Mobile) *</label>
+                    <input type="tel" id="reg-sender-phone" required placeholder="01XXXXXXXXX" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Transaction ID (TrxID) *</label>
+                    <input type="text" id="reg-trxid" required placeholder="যেমন: BKS99X21MN" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm font-mono uppercase outline-none focus:ring-2 focus:ring-amber-500">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 hover:from-red-700 text-white font-black text-base shadow-lg shadow-amber-600/30 hover:scale-[1.01] transition-all">
+              রেজিস্ট্রেশন নিশ্চিত করুন ও ই-ব্যাজ গ্রহণ করুন
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SECTION: BADGE SEARCH ==================== -->
+    <div id="sec-badge-search" class="hidden py-12 bg-slate-50 px-4">
+      <div class="max-w-xl mx-auto">
+        <button onclick="showSection('home')" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-red-700 mb-6">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> মূল পাতায় ফিরে যান
+        </button>
+
+        <div class="bg-white rounded-3xl p-8 border border-amber-200/80 shadow-lg text-center mb-6">
+          <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="id-card" class="w-7 h-7"></i>
+          </div>
+          <h1 class="text-2xl font-black text-slate-900">ই-ব্যাজ ও রেজিস্ট্রেশন স্লিপ খুঁজুন</h1>
+          <p class="text-xs text-slate-500 mt-1 mb-6">আপনার মোবাইল নম্বর বা রেজিস্ট্রেশন আইডি (যেমন: SJ-2026-1001) দিয়ে অনুসন্ধান করুন।</p>
+
+          <div class="flex gap-2">
+            <input type="text" id="badge-search-input" placeholder="মোবাইল নম্বর বা আইডি লিখুন..." class="flex-grow px-4 py-3 rounded-2xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+            <button onclick="handleBadgeSearch()" class="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm transition">অনুসন্ধান</button>
+          </div>
+        </div>
+
+        <div id="badge-search-results" class="space-y-3">
+          <!-- Results injected here -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SECTION: BADGE DISPLAY ==================== -->
+    <div id="sec-badge-view" class="hidden py-8 bg-slate-100 px-4">
+      <div class="max-w-xl mx-auto no-print mb-4 flex items-center justify-between">
+        <button onclick="showSection('home')" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-red-700">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> মূল পাতায় যান
+        </button>
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-black shadow-sm">
+          <i data-lucide="printer" class="w-4 h-4"></i> প্রিন্ট / PDF সংরক্ষণ
+        </button>
+      </div>
+
+      <!-- PRINTABLE BADGE -->
+      <div id="printable-badge-area" class="max-w-md mx-auto bg-white rounded-3xl overflow-hidden border-4 border-amber-500 shadow-2xl">
+        <div class="w-16 h-3 bg-slate-200 rounded-full mx-auto mt-3 border border-slate-300"></div>
+
+        <!-- Badge Header -->
+        <div class="bg-gradient-to-r from-red-900 via-amber-700 to-red-900 text-white pt-4 pb-6 px-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-white/10 border-2 border-amber-300 flex items-center justify-center mx-auto mb-1.5">
+            <i data-lucide="award" class="w-7 h-7 text-amber-300"></i>
+          </div>
+          <h2 class="text-xl font-black text-amber-200">সুবর্ণ জয়ন্তী ও পুনর্মিলনী</h2>
+          <p class="text-[11px] text-amber-100 font-medium">Golden Jubilee & Grand Alumni Reunion • 50 Years</p>
+          <div class="inline-block mt-2 px-3 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-black uppercase">
+            অফিশিয়াল প্রবেশপত্র / Delegate Pass
+          </div>
+        </div>
+
+        <!-- Badge Body -->
+        <div class="p-6 text-center">
+          <div class="relative -mt-12 mb-3 inline-block">
+            <div class="w-24 h-24 rounded-2xl bg-white p-1 border-4 border-amber-400 shadow-xl overflow-hidden mx-auto flex items-center justify-center bg-slate-100">
+              <i data-lucide="user" class="w-12 h-12 text-slate-400"></i>
+            </div>
+            <span id="badge-tshirt" class="absolute bottom-0 right-0 bg-red-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border border-white">L Size</span>
+          </div>
+
+          <h3 id="badge-name-bn" class="text-2xl font-black text-slate-900">মোঃ ইমরান চৌধুরী</h3>
+          <p id="badge-name-en" class="text-xs font-semibold text-slate-500">Md. Imran Chowdhury</p>
+
+          <div class="my-3 inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-amber-100 text-amber-900 font-black text-base border border-amber-300">
+            <span>এসএসসি ব্যাচ:</span>
+            <span id="badge-batch" class="text-xl text-red-700">১৯৮৭</span>
+          </div>
+
+          <p id="badge-profession" class="text-xs font-semibold text-slate-600">ব্যবসায়ী • ঢাকা</p>
+
+          <div class="grid grid-cols-2 gap-2 mt-4 p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-left">
+            <div>
+              <span class="text-[10px] text-slate-400 font-bold block">আইডি নম্বর</span>
+              <span id="badge-id" class="font-mono font-black text-slate-900">SJ-2026-1001</span>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-slate-400 font-bold block">স্ট্যাটাস</span>
+              <span id="badge-status" class="font-bold text-emerald-700">অনুমোদিত (Verified)</span>
+            </div>
+            <div class="pt-2 border-t border-slate-200">
+              <span class="text-[10px] text-slate-400 font-bold block">পরিশোধিত ফি</span>
+              <span id="badge-fee" class="font-bold text-emerald-700">৳১,০০০</span>
+            </div>
+            <div class="text-right pt-2 border-t border-slate-200">
+              <span class="text-[10px] text-slate-400 font-bold block">TrxID</span>
+              <span id="badge-trx" class="font-mono text-slate-700 text-[11px]">BKS89X23MN</span>
+            </div>
+          </div>
+
+          <!-- QR Code Container -->
+          <div class="mt-5 p-4 rounded-2xl bg-white border-2 border-dashed border-amber-400 inline-flex flex-col items-center">
+            <div id="badge-qrcode"></div>
+            <span class="text-[10px] text-slate-500 font-mono mt-2">গেট ভেরিফিকেশন কোড</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 py-2 px-4 text-center">
+          <p class="text-[10px] text-amber-400 font-mono tracking-widest">★ GOLDEN JUBILEE CELEBRATION 50 YEARS DELEGATE CARD ★</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SECTION: ADMIN ==================== -->
+    <div id="sec-admin" class="hidden py-8 bg-slate-100 px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Passcode Login view if locked -->
+        <div id="admin-login-box" class="max-w-md mx-auto bg-white rounded-3xl p-8 border border-amber-200 shadow-xl text-center my-12">
+          <div class="w-16 h-16 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="lock" class="w-8 h-8"></i>
+          </div>
+          <h2 class="text-2xl font-black text-slate-900">অ্যাডমিন প্রবেশদ্বার</h2>
+          <p class="text-xs text-slate-500 mt-1 mb-6">এডমিন পাসকোড লিখুন (ডিফল্ট: <code class="bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-bold">2026</code>)</p>
+
+          <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+            <input type="password" id="admin-pass-input" placeholder="পাসকোড দিন..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-center text-lg font-mono tracking-widest outline-none focus:ring-2 focus:ring-amber-500">
+            <p id="admin-pass-err" class="text-xs text-red-600 font-bold hidden">ভুল পাসকোড! অনুগ্রহ করে '2026' দিন।</p>
+            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold">ড্যাশবোর্ডে প্রবেশ করুন</button>
+          </form>
+        </div>
+
+        <!-- Admin Dashboard view if unlocked -->
+        <div id="admin-dashboard-box" class="hidden space-y-6">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-200">
+            <div>
+              <h1 class="text-2xl font-black text-slate-900">অ্যাডমিন কন্ট্রোল প্যানেল</h1>
+              <p class="text-xs text-slate-500">রেজিস্ট্রেশন ডাটাবেস ও পেমেন্ট অডিট সিস্টেম</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="exportToCSV()" class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold flex items-center gap-2 hover:bg-emerald-700">
+                <i data-lucide="download" class="w-4 h-4"></i> Excel / CSV এক্সপোর্ট
+              </button>
+              <button onclick="adminLogout()" class="p-2.5 rounded-xl bg-slate-200 text-slate-600 text-xs hover:bg-slate-300">
+                <i data-lucide="lock" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Stats row -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200">
+              <span class="text-xs text-slate-500 font-bold block">মোট রেজিস্ট্রেশন</span>
+              <span id="admin-total-reg" class="text-2xl font-black text-slate-900">৬ জন</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200">
+              <span class="text-xs text-slate-500 font-bold block">অনুমোদিত পেমেন্ট</span>
+              <span id="admin-verified-count" class="text-2xl font-black text-emerald-700">৪ টি</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200">
+              <span class="text-xs text-slate-500 font-bold block">অপেক্ষমাণ পেমেন্ট</span>
+              <span id="admin-pending-count" class="text-2xl font-black text-amber-600">২ টি</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200">
+              <span class="text-xs text-slate-500 font-bold block">মোট সংগৃহীত তহবিল</span>
+              <span id="admin-total-funds" class="text-2xl font-black text-indigo-900">৳৮,০০০</span>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 uppercase font-bold">
+                  <tr>
+                    <th class="py-3 px-4">আইডি</th>
+                    <th class="py-3 px-4">নাম ও ব্যাচ</th>
+                    <th class="py-3 px-4">মোবাইল</th>
+                    <th class="py-3 px-4">সাইজ ও অতিথি</th>
+                    <th class="py-3 px-4">ফি ও TrxID</th>
+                    <th class="py-3 px-4">স্ট্যাটাস</th>
+                    <th class="py-3 px-4 text-right">পদক্ষেপ</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-table-body" class="divide-y divide-slate-100">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 py-10 border-t-4 border-amber-500 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2 text-xs text-slate-400">
+      <p class="text-white font-bold text-sm">সুবর্ণ জয়ন্তী ও প্রাক্তন শিক্ষার্থী পুনর্মিলনী উদ্‌যাপন কমিটি</p>
+      <p>বিদ্যালয় অডিটোরিয়াম প্রাঙ্গণ • ২২ ও ২৩ জানুয়ারি ২০২৭</p>
+      <p class="pt-3 border-t border-slate-800">© সর্বস্বত্ব সংরক্ষিত। সুবর্ণ জয়ন্তী ৫০ বছর পূর্তি উৎসব।</p>
+    </div>
+  </footer>
+
+  <!-- APPLICATION LOGIC SCRIPT -->
+  <script>
+    // Bengali Digits Helper
+    function toBn(num) {
+      const bn = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+      return num.toString().replace(/\d/g, d => bn[parseInt(d, 10)]);
+    }
+
+    // Default Coordinators Data
+    const COORDINATORS = [
+      { batch: "1987", cat: "80s", names: ["মোঃ ইমরান চৌধুরী"], role: "প্রধান সমন্বয়ক" },
+      { batch: "1988-1991", cat: "80s", names: ["মোঃ ওমর ফারুক", "মোঃ জামাল হোসেন"], role: "সমন্বয়ক" },
+      { batch: "1992", cat: "90s", names: ["মোঃ জসিম উদ্দিন"], role: "সমন্বয়ক" },
+      { batch: "1993", cat: "90s", names: ["মোঃ মনিরুজ্জামান (রোকনী)", "জমির বক্স", "সঞ্জয়", "হেলাল"], role: "সমন্বয়ক" },
+      { batch: "1995", cat: "90s", names: ["বাবুল হোসেন", "নূর আলম"], role: "সমন্বয়ক" },
+      { batch: "1997", cat: "90s", names: ["দেলোয়ার হোসেন", "মানিক"], role: "সমন্বয়ক" },
+      { batch: "2000", cat: "2000s", names: ["মোঃ সালাউদ্দিন", "শহীদুল্লা (রাসেল)"], role: "সমন্বয়ক" },
+      { batch: "2001", cat: "2000s", names: ["উজ্জ্বল"], role: "সমন্বয়ক" },
+      { batch: "2002", cat: "2000s", names: ["ইব্রাহিম", "রিপন", "রেজা", "শাহিন", "রিয়াজ", "গিয়াস উদ্দিন"], role: "সমন্বয়ক" },
+      { batch: "2004", cat: "2000s", names: ["মানিক", "বাবুল", "নাসির"], role: "সমন্বয়ক" },
+      { batch: "2006", cat: "2000s", names: ["মোঃ মোক্তার হোসেন", "সোহেল", "জামিল", "শাহ আলম"], role: "সমন্বয়ক" },
+      { batch: "2007", cat: "2000s", names: ["মোঃ রাসেল", "সাইফুল"], role: "সমন্বয়ক" },
+      { batch: "2009", cat: "2000s", names: ["আকরাম"], role: "সমন্বয়ক" },
+      { batch: "2010", cat: "2010s", names: ["মোঃ কাউসার"], role: "সমন্বয়ক" },
+      { batch: "2011", cat: "2010s", names: ["হাসনাত (রুবেল)", "মান্নান"], role: "সমন্বয়ক" },
+      { batch: "2012", cat: "2010s", names: ["রনি আহমেদ"], role: "সমন্বয়ক" },
+      { batch: "2018", cat: "2010s", names: ["মীম"], role: "সমন্বয়ক" }
+    ];
+
+    // Seed Registrations in LocalStorage
+    const DEFAULT_REGISTRATIONS = [
+      { id: "SJ-2026-1001", nameBn: "মোঃ ইমরান চৌধুরী", nameEn: "Md. Imran Chowdhury", batch: "1987", phone: "01711234567", profession: "ব্যবসায়ী", address: "ধানমন্ডি, ঢাকা", tShirt: "XL", guestCount: 2, totalFee: 2000, trxId: "BKS89X23MN", status: "verified" },
+      { id: "SJ-2026-1002", nameBn: "মোঃ মনিরুজ্জামান রোকনী", nameEn: "Md. Moniruzzaman Rokny", batch: "1993", phone: "01713456789", profession: "অধ্যাপক", address: "গুলশান, ঢাকা", tShirt: "L", guestCount: 1, totalFee: 1500, trxId: "NGD74T11QR", status: "verified" },
+      { id: "SJ-2026-1003", nameBn: "হাসনাত রুবেল", nameEn: "Hasnat Rubel", batch: "2011", phone: "01725112233", profession: "সফটওয়্যার ইঞ্জিনিয়ার", address: "উত্তরা, ঢাকা", tShirt: "M", guestCount: 0, totalFee: 1000, trxId: "BKS99W87AB", status: "verified" },
+      { id: "SJ-2026-1004", nameBn: "মোঃ মান্নান", nameEn: "Md. Mannan", batch: "2011", phone: "01822334455", profession: "টেলিকম স্পেশালিস্ট", address: "আগারগাঁও, ঢাকা", tShirt: "L", guestCount: 1, totalFee: 1500, trxId: "RCK554312X", status: "verified" },
+      { id: "SJ-2026-1005", nameBn: "রনি আহমেদ", nameEn: "Rony Ahmed", batch: "2012", phone: "01726778899", profession: "ব্যাংকার", address: "মতিঝিল, ঢাকা", tShirt: "M", guestCount: 0, totalFee: 1000, trxId: "BKS11L22PP", status: "pending" },
+      { id: "SJ-2026-1006", nameBn: "মীম সুলতানা", nameEn: "Meem Sultana", batch: "2018", phone: "01727889900", profession: "গবেষক", address: "মিরপুর, ঢাকা", tShirt: "S", guestCount: 0, totalFee: 1000, trxId: "NGD33K99JJ", status: "pending" }
+    ];
+
+    function getRegistrations() {
+      const data = localStorage.getItem("jubilee_html_registrations");
+      if (!data) {
+        localStorage.setItem("jubilee_html_registrations", JSON.stringify(DEFAULT_REGISTRATIONS));
+        return DEFAULT_REGISTRATIONS;
+      }
+      return JSON.parse(data);
+    }
+
+    function saveRegistrations(list) {
+      localStorage.setItem("jubilee_html_registrations", JSON.stringify(list));
+    }
+
+    // SPA Navigation
+    function showSection(name) {
+      ['home', 'register', 'badge-search', 'badge-view', 'admin'].forEach(sec => {
+        const el = document.getElementById(`sec-${sec}`);
+        if (el) el.classList.add('hidden');
+      });
+      const active = document.getElementById(`sec-${name}`);
+      if (active) active.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToCoordinators() {
+      showSection('home');
+      setTimeout(() => {
+        document.getElementById('coordinators-section')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    function scrollToNotices() {
+      showSection('home');
+      setTimeout(() => {
+        document.getElementById('notices-section')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      m.classList.toggle('hidden');
+    }
+
+    // Render Coordinators
+    function renderCoordinators(list) {
+      const grid = document.getElementById('coordinator-grid');
+      if (!grid) return;
+      grid.innerHTML = list.map(item => `
+        <div class="bg-white rounded-2xl border border-amber-200/80 p-5 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+            <span class="font-bold text-slate-900 text-lg">এসএসসি ব্যাচ: ${toBn(item.batch)}</span>
+            <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">Batch ${item.batch}</span>
+          </div>
+          <div class="space-y-2">
+            ${item.names.map(name => `
+              <div class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-bold text-slate-900">${name}</p>
+                  <p class="text-[11px] text-slate-500">${item.role}</p>
+                </div>
+                <a href="tel:01711234567" class="p-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-emerald-700"><i data-lucide="phone" class="w-3.5 h-3.5"></i></a>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function filterCoordinators(cat) {
+      document.querySelectorAll('.coord-filter').forEach(b => {
+        b.classList.remove('bg-red-700', 'text-white');
+        b.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      event.target.classList.remove('bg-slate-100', 'text-slate-700');
+      event.target.classList.add('bg-red-700', 'text-white');
+
+      if (cat === 'all') {
+        renderCoordinators(COORDINATORS);
+      } else {
+        renderCoordinators(COORDINATORS.filter(c => c.cat === cat));
+      }
+    }
+
+    function searchCoordinators() {
+      const q = document.getElementById('coord-search').value.toLowerCase().trim();
+      const filtered = COORDINATORS.filter(c => 
+        c.batch.toLowerCase().includes(q) ||
+        toBn(c.batch).includes(q) ||
+        c.names.some(n => n.toLowerCase().includes(q))
+      );
+      renderCoordinators(filtered);
+    }
+
+    // Form logic
+    let currentGuestCount = 0;
+    let selectedTShirt = 'L';
+
+    function setTShirtSize(size) {
+      selectedTShirt = size;
+      document.querySelectorAll('.tshirt-btn').forEach(btn => {
+        btn.classList.remove('bg-amber-600', 'text-white', 'shadow');
+        btn.classList.add('bg-white', 'text-slate-700');
+      });
+      event.target.classList.remove('bg-white', 'text-slate-700');
+      event.target.classList.add('bg-amber-600', 'text-white', 'shadow');
+    }
+
+    function updateGuestCount(delta) {
+      currentGuestCount = Math.max(0, Math.min(5, currentGuestCount + delta));
+      document.getElementById('guest-count-display').innerText = toBn(currentGuestCount);
+      const total = 1000 + (currentGuestCount * 500);
+      document.getElementById('total-fee-display').innerText = `৳${toBn(total.toLocaleString())}`;
+    }
+
+    function copyNumber(num) {
+      navigator.clipboard.writeText(num);
+      alert('বিকাশ নম্বর কপি হয়েছে: ' + num);
+    }
+
+    function handleRegistrationSubmit(e) {
+      e.preventDefault();
+      const list = getRegistrations();
+      const newId = `SJ-2026-${1000 + list.length + 1}`;
+      const total = 1000 + (currentGuestCount * 500);
+
+      const record = {
+        id: newId,
+        nameBn: document.getElementById('reg-name-bn').value,
+        nameEn: document.getElementById('reg-name-en').value,
+        batch: document.getElementById('reg-batch').value,
+        phone: document.getElementById('reg-phone').value,
+        profession: document.getElementById('reg-profession').value,
+        address: document.getElementById('reg-address').value,
+        tShirt: selectedTShirt,
+        guestCount: currentGuestCount,
+        totalFee: total,
+        trxId: document.getElementById('reg-trxid').value.toUpperCase(),
+        status: 'pending'
+      };
+
+      list.unshift(record);
+      saveRegistrations(list);
+
+      // Confetti
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+
+      // Show badge
+      setTimeout(() => {
+        displayBadge(record);
+      }, 1000);
+    }
+
+    // Display Badge
+    function displayBadge(item) {
+      document.getElementById('badge-name-bn').innerText = item.nameBn;
+      document.getElementById('badge-name-en').innerText = item.nameEn;
+      document.getElementById('badge-batch').innerText = toBn(item.batch);
+      document.getElementById('badge-profession').innerText = `${item.profession} • ${item.address}`;
+      document.getElementById('badge-id').innerText = item.id;
+      document.getElementById('badge-fee').innerText = `৳${toBn(item.totalFee.toLocaleString())}`;
+      document.getElementById('badge-trx').innerText = item.trxId;
+      document.getElementById('badge-tshirt').innerText = `${item.tShirt} Size`;
+
+      const statusEl = document.getElementById('badge-status');
+      if (item.status === 'verified') {
+        statusEl.innerText = "অনুমোদিত (Verified)";
+        statusEl.className = "font-bold text-emerald-700";
+      } else {
+        statusEl.innerText = "যাচাইকরণ প্রক্রিয়াধীন";
+        statusEl.className = "font-bold text-amber-700";
+      }
+
+      // Generate QR Code
+      const qrEl = document.getElementById('badge-qrcode');
+      qrEl.innerHTML = "";
+      new QRCode(qrEl, {
+        text: `https://jubilee-reunion.edu.bd/badge/${item.id}`,
+        width: 110,
+        height: 110
+      });
+
+      showSection('badge-view');
+      lucide.createIcons();
+    }
+
+    function handleBadgeSearch() {
+      const q = document.getElementById('badge-search-input').value.toLowerCase().trim();
+      if (!q) return;
+      const list = getRegistrations();
+      const results = list.filter(r => 
+        r.id.toLowerCase().includes(q) ||
+        r.phone.includes(q) ||
+        r.nameBn.toLowerCase().includes(q) ||
+        r.trxId.toLowerCase().includes(q)
+      );
+
+      const resBox = document.getElementById('badge-search-results');
+      if (results.length === 0) {
+        resBox.innerHTML = `<div class="p-6 bg-white rounded-2xl border border-slate-200 text-center text-slate-500">কোনো তথ্য পাওয়া যায়নি।</div>`;
+      } else {
+        resBox.innerHTML = results.map(r => `
+          <div onclick='displayBadge(${JSON.stringify(r)})' class="p-4 bg-white rounded-2xl border border-slate-200 hover:border-amber-400 cursor-pointer flex items-center justify-between">
+            <div>
+              <p class="font-bold text-slate-900">${r.nameBn} <span class="text-xs bg-amber-100 text-amber-900 px-2 py-0.5 rounded ml-1">ব্যাচ ${toBn(r.batch)}</span></p>
+              <p class="text-xs text-slate-500 font-mono">আইডি: ${r.id} • ফোন: ${r.phone}</p>
+            </div>
+            <button class="px-3 py-1.5 rounded-lg bg-amber-100 text-amber-900 text-xs font-bold">স্লিপ দেখুন →</button>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Admin
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pin = document.getElementById('admin-pass-input').value;
+      if (pin === "2026" || pin === "admin") {
+        document.getElementById('admin-login-box').classList.add('hidden');
+        document.getElementById('admin-dashboard-box').classList.remove('hidden');
+        renderAdminDashboard();
+      } else {
+        document.getElementById('admin-pass-err').classList.remove('hidden');
+      }
+    }
+
+    function adminLogout() {
+      document.getElementById('admin-login-box').classList.remove('hidden');
+      document.getElementById('admin-dashboard-box').classList.add('hidden');
+    }
+
+    function renderAdminDashboard() {
+      const list = getRegistrations();
+      const verified = list.filter(r => r.status === 'verified').length;
+      const totalFunds = list.reduce((sum, r) => sum + (r.totalFee || 1000), 0);
+
+      document.getElementById('admin-total-reg').innerText = `${toBn(list.length)} জন`;
+      document.getElementById('admin-verified-count').innerText = `${toBn(verified)} টি`;
+      document.getElementById('admin-pending-count').innerText = `${toBn(list.length - verified)} টি`;
+      document.getElementById('admin-total-funds').innerText = `৳${toBn(totalFunds.toLocaleString())}`;
+
+      const tbody = document.getElementById('admin-table-body');
+      tbody.innerHTML = list.map(r => `
+        <tr class="hover:bg-slate-50">
+          <td class="py-3 px-4 font-mono font-bold">${r.id}</td>
+          <td class="py-3 px-4">
+            <span class="font-bold text-slate-900 block">${r.nameBn}</span>
+            <span class="text-[10px] bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-bold">ব্যাচ ${toBn(r.batch)}</span>
+          </td>
+          <td class="py-3 px-4 font-mono">${r.phone}</td>
+          <td class="py-3 px-4">${r.tShirt} • ${r.guestCount > 0 ? `+${toBn(r.guestCount)} অতিথি` : 'একক'}</td>
+          <td class="py-3 px-4 font-bold text-emerald-700">৳${toBn(r.totalFee)} <span class="font-mono text-slate-400 text-[10px] block">${r.trxId}</span></td>
+          <td class="py-3 px-4">
+            <button onclick="toggleStatus('${r.id}')" class="px-2 py-0.5 rounded-full text-[10px] font-bold ${r.status === 'verified' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+              ${r.status === 'verified' ? 'Verified' : 'Pending'}
+            </button>
+          </td>
+          <td class="py-3 px-4 text-right">
+            <button onclick='displayBadge(${JSON.stringify(r)})' class="p-1 rounded bg-slate-100 hover:bg-amber-100"><i data-lucide="eye" class="w-3.5 h-3.5"></i></button>
+          </td>
+        </tr>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function toggleStatus(id) {
+      const list = getRegistrations();
+      const item = list.find(r => r.id === id);
+      if (item) {
+        item.status = item.status === 'verified' ? 'pending' : 'verified';
+        saveRegistrations(list);
+        renderAdminDashboard();
+      }
+    }
+
+    function exportToCSV() {
+      const list = getRegistrations();
+      const headers = ["ID", "Name (BN)", "Name (EN)", "Batch", "Phone", "Profession", "TShirt", "Guests", "Total Fee", "TrxID", "Status"];
+      const rows = list.map(r => [r.id, `"${r.nameBn}"`, `"${r.nameEn}"`, r.batch, `"${r.phone}"`, `"${r.profession}"`, r.tShirt, r.guestCount, r.totalFee, r.trxId, r.status]);
+      const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `golden_jubilee_alumni_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Populate Batch Select (1970 to 2026)
+    window.addEventListener('DOMContentLoaded', () => {
+      const sel = document.getElementById('reg-batch');
+      if (sel) {
+        for (let y = 2026; y >= 1970; y--) {
+          const opt = document.createElement('option');
+          opt.value = y.toString();
+          opt.text = `ব্যাচ ${toBn(y)} (${y})`;
+          sel.appendChild(opt);
+        }
+        sel.value = "2011";
+      }
+      renderCoordinators(COORDINATORS);
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
