@@ -63,7 +63,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-black text-white bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 shadow-md shadow-amber-500/25 hover:shadow-lg hover:scale-[1.03] active:scale-[0.98] transition-all"
                   >
                     <Icon className="w-4 h-4" />
                     <span>{link.label}</span>
@@ -79,13 +79,13 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-bold transition-colors ${
                     isActive
-                      ? "text-red-700 bg-red-50 font-semibold"
-                      : "text-slate-600 hover:text-red-700 hover:bg-slate-50"
+                      ? "text-red-700 bg-red-50 font-black"
+                      : "text-slate-800 hover:text-red-700 hover:bg-slate-100"
                   }`}
                 >
-                  <Icon className="w-4 h-4 text-slate-400 group-hover:text-red-600" />
+                  <Icon className="w-4 h-4 text-slate-500 group-hover:text-red-600" />
                   <span>{link.label}</span>
                 </Link>
               );
