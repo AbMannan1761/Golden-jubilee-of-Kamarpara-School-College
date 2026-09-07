@@ -31,8 +31,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        bengali: ["var(--font-hind)", "Kalpurush", "SolaimanLipi", "sans-serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
+        bengali: ["Nikosh", "NikoshBAN", "SolaimanLipi", "Kalpurush", "sans-serif"],
+        sans: ["Nikosh", "NikoshBAN", "var(--font-inter)", "sans-serif"],
       },
       animation: {
         "spin-slow": "spin 20s linear infinite",
