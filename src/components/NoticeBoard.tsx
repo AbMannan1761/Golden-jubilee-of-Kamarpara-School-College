@@ -26,6 +26,7 @@ export default function NoticeBoard() {
           {EVENT_NOTICES.map((notice) => {
             const isUrgent = notice.type === "urgent";
             const isHighlight = notice.type === "highlight";
+            const isMeeting = notice.tagBn === "মিটিং" || notice.id === "notice-4";
 
             return (
               <div
@@ -35,6 +36,8 @@ export default function NoticeBoard() {
                     ? "bg-gradient-to-br from-red-50 to-orange-50/80 border-2 border-red-200 shadow-md shadow-red-500/5"
                     : isHighlight
                     ? "bg-gradient-to-br from-amber-50 to-yellow-50/80 border-2 border-amber-300 shadow-md shadow-amber-500/10"
+                    : isMeeting
+                    ? "bg-gradient-to-br from-blue-50 to-indigo-50/70 border-2 border-blue-400 shadow-md shadow-blue-500/10 ring-1 ring-blue-400/30"
                     : "bg-white border border-slate-200/90 shadow-sm hover:shadow-md"
                 }`}
               >
@@ -46,6 +49,8 @@ export default function NoticeBoard() {
                           ? "bg-red-600 text-white"
                           : isHighlight
                           ? "bg-amber-600 text-white"
+                          : isMeeting
+                          ? "bg-blue-600 text-white"
                           : "bg-slate-100 text-slate-700"
                       }`}
                     >
@@ -53,14 +58,21 @@ export default function NoticeBoard() {
                     </span>
                     {isUrgent && <AlertCircle className="w-4 h-4 text-red-600" />}
                     {isHighlight && <Sparkles className="w-4 h-4 text-amber-600" />}
-                    {!isUrgent && !isHighlight && <Info className="w-4 h-4 text-slate-400" />}
+                    {isMeeting && <Calendar className="w-4 h-4 text-blue-600" />}
+                    {!isUrgent && !isHighlight && !isMeeting && <Info className="w-4 h-4 text-slate-400" />}
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
                     {notice.titleBn}
                   </h3>
 
-                  <div className="inline-block text-xs font-semibold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded mb-3">
+                  <div
+                    className={`inline-block text-xs font-bold px-2.5 py-1 rounded-lg mb-3 shadow-2xs ${
+                      isMeeting
+                        ? "text-blue-900 bg-blue-100/90 border border-blue-200/80"
+                        : "text-amber-800 bg-amber-100/80"
+                    }`}
+                  >
                     {notice.dateBn}
                   </div>
 
