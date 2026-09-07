@@ -11,6 +11,7 @@ export default function CoordinatorDirectory() {
 
   const categories = [
     { key: "all", labelBn: "সকল ব্যাচ" },
+    { key: "2002", labelBn: "প্রাথমিক সমন্বয়ক, ২০০২ ব্যাচ" },
     { key: "80s", labelBn: "৮০-এর দশক" },
     { key: "90s", labelBn: "৯০-এর দশক" },
     { key: "2000s", labelBn: "২০০০-এর দশক" },
@@ -21,7 +22,8 @@ export default function CoordinatorDirectory() {
     return BATCH_COORDINATORS.filter((item) => {
       // Category filter
       const matchesCategory =
-        activeCategory === "all" || item.category === activeCategory;
+        activeCategory === "all" ||
+        (activeCategory === "2002" ? item.batch === "2002" : item.category === activeCategory);
 
       // Search query filter
       const q = searchQuery.toLowerCase().trim();
@@ -109,7 +111,11 @@ export default function CoordinatorDirectory() {
             {filteredList.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl border border-amber-200/80 p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group flex flex-col justify-between"
+                className={`bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group flex flex-col justify-between ${
+                  item.batch === "2002"
+                    ? "border-2 border-amber-400 ring-2 ring-amber-400/20 shadow-md"
+                    : "border border-amber-200/80"
+                }`}
               >
                 <div>
                   {/* Card Header: Batch Badge */}
@@ -120,8 +126,14 @@ export default function CoordinatorDirectory() {
                         এসএসসি ব্যাচ: {toBengaliDigits(item.batch)}
                       </h3>
                     </div>
-                    <span className="text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded-md">
-                      {item.coordinators.length > 1
+                    <span className={`text-[11px] font-semibold border px-2 py-0.5 rounded-md ${
+                      item.batch === "2002"
+                        ? "bg-amber-500 text-white border-amber-500"
+                        : "bg-amber-50 text-amber-800 border-amber-200"
+                    }`}>
+                      {item.batch === "2002"
+                        ? "প্রাথমিক সমন্বয়ক দল"
+                        : item.coordinators.length > 1
                         ? `${toBengaliDigits(item.coordinators.length)} জন সমন্বয়ক`
                         : "সমন্বয়ক"}
                     </span>
