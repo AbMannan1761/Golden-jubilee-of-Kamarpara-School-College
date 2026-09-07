@@ -22,7 +22,12 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-4 pb-8 sm:pt-6 sm:pb-10 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+      <section 
+        className="relative overflow-hidden text-white pt-5 pb-9 sm:pt-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "linear-gradient(180deg, rgba(15, 23, 42, 0.88) 0%, rgba(69, 10, 10, 0.82) 45%, rgba(15, 23, 42, 0.94) 100%), url('/school-pic-2.jpg')"
+        }}
+      >
         {/* Ambient Glows */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-amber-500/15 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />
@@ -30,14 +35,15 @@ export default function HomePage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Milestone Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10">
-            <Award className="w-3.5 h-3.5 text-amber-400" />
-            <span>১৯৭৬ - ২০২৬ • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10 backdrop-blur-md">
+            <img src="/school-logo.jpg" alt="Logo" className="w-4 h-4 rounded-full border border-amber-300 object-cover" />
+            <span>Kamarpara School & College • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস (১৯৭৬ - ২০২৬)</span>
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight drop-shadow-xl">
+            <span className="block text-amber-300 text-xl sm:text-3xl md:text-4xl font-extrabold mb-1 tracking-wide">Kamarpara School & College</span>
             <span className="block text-white">সুবর্ণ জয়ন্তী ও</span>
             <span className="block mt-1 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
               প্রাক্তন শিক্ষার্থী পুনর্মিলনী

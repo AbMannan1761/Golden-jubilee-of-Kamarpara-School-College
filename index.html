@@ -69,8 +69,24 @@
       }
     }
   </style>
-</head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- 0. TOP INSTITUTION BAR -->
+  <div class="bg-gradient-to-r from-red-950 via-slate-900 to-amber-950 text-amber-100 py-1.5 px-4 text-xs font-bold border-b border-amber-500/30 no-print flex items-center justify-between">
+    <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="school-logo.jpg" alt="Logo" class="w-5 h-5 rounded-full border border-amber-400 object-cover">
+        <span class="tracking-wide text-amber-300 font-extrabold text-xs sm:text-sm">Kamarpara School & College</span>
+        <span class="text-amber-500/60 hidden sm:inline">•</span>
+        <span class="text-slate-300 text-xs hidden sm:inline font-medium">কামারপাড়া স্কুল অ্যান্ড কলেজ</span>
+      </div>
+      <div class="text-[11px] text-amber-200/80 font-medium hidden md:flex items-center gap-2">
+        <span>স্থাপিত: ১৯৭৭ ইং</span>
+        <span>•</span>
+        <span>তুরাগ, ঢাকা</span>
+      </div>
+    </div>
+  </div>
 
   <!-- 1. TOP NAVBAR -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm no-print">
@@ -78,19 +94,17 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="#" onclick="showSection('home')" class="flex items-center gap-2.5 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
-            <i data-lucide="award" class="w-5 h-5 text-amber-100"></i>
-          </div>
+          <img src="school-logo.jpg" alt="Kamarpara School & College" class="w-10 h-10 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform border-2 border-amber-400">
           <div>
             <div class="flex items-center gap-1.5">
-              <span class="text-base sm:text-lg font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
-                সুবর্ণ জয়ন্তী ও পুনর্মিলনী
+              <span class="text-base sm:text-lg font-black text-slate-900 group-hover:text-red-700 transition-colors">
+                Kamarpara School & College
               </span>
               <span class="text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full border border-amber-300">
                 ৫০ বছর
               </span>
             </div>
-            <p class="text-[11px] text-slate-500 font-medium -mt-0.5">Golden Jubilee & Grand Alumni Reunion</p>
+            <p class="text-[11px] font-bold text-red-700 -mt-0.5">সুবর্ণ জয়ন্তী ও প্রাক্তন শিক্ষার্থী পুনর্মিলনী</p>
           </div>
         </a>
 
@@ -150,23 +164,24 @@
 
     <!-- ==================== SECTION: HOME ==================== -->
     <div id="sec-home">
-      <!-- Hero Section -->
-      <section class="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-4 pb-8 sm:pt-6 sm:pb-10 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+      <!-- Hero Section with school pic 2 background and gradient -->
+      <section class="relative overflow-hidden text-white pt-5 pb-9 sm:pt-8 sm:pb-12 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.88) 0%, rgba(69, 10, 10, 0.82) 45%, rgba(15, 23, 42, 0.94) 100%), url('school-pic-2.jpg');">
         <div class="max-w-4xl mx-auto text-center relative z-10">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10">
-            <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
-            <span>১৯৭৬ - ২০২৬ • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস</span>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10 backdrop-blur-md">
+            <img src="school-logo.jpg" alt="Logo" class="w-4 h-4 rounded-full border border-amber-300">
+            <span>Kamarpara School & College • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস (১৯৭৬ - ২০২৬)</span>
             <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
           </div>
 
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight drop-shadow-xl">
+            <span class="block text-amber-300 text-xl sm:text-3xl md:text-4xl font-extrabold mb-1 tracking-wide">Kamarpara School & College</span>
             <span class="block text-white">সুবর্ণ জয়ন্তী ও</span>
             <span class="block mt-1 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
               প্রাক্তন শিক্ষার্থী পুনর্মিলনী
             </span>
           </h1>
 
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p class="mt-2 text-xs sm:text-sm md:text-base text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow">
             স্মৃতির মায়ায় আবার বাঁধিব সুর, ফিরে চল চিরচেনা সেই প্রিয় প্রাঙ্গণে। ৫০ বছর পূর্তির আনন্দ উৎসবে সকল প্রাক্তন শিক্ষার্থীদের প্রাণঢালা আমন্ত্রণ।
           </p>
 

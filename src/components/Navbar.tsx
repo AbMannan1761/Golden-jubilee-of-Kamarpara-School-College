@@ -29,28 +29,44 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo & Branding */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
-              <Award className="w-5 h-5 text-amber-100" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
-                  সুবর্ণ জয়ন্তী ও পুনর্মিলনী
-                </span>
-                <span className="inline-block text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded-full border border-amber-300">
-                  ৫০ বছর
-                </span>
+    <>
+      {/* 0. Top Institution Bar */}
+      <div className="bg-gradient-to-r from-red-950 via-slate-900 to-amber-950 text-amber-100 py-1.5 px-4 text-xs font-bold border-b border-amber-500/30 no-print flex items-center justify-between">
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <img src="/school-logo.jpg" alt="Logo" className="w-5 h-5 rounded-full border border-amber-400 object-cover" />
+            <span className="tracking-wide text-amber-300 font-extrabold text-xs sm:text-sm">Kamarpara School & College</span>
+            <span className="text-amber-500/60 hidden sm:inline">•</span>
+            <span className="text-slate-300 text-xs hidden sm:inline font-medium">কামারপাড়া স্কুল অ্যান্ড কলেজ</span>
+          </div>
+          <div className="text-[11px] text-amber-200/80 font-medium hidden md:flex items-center gap-2">
+            <span>স্থাপিত: ১৯৭৭ ইং</span>
+            <span>•</span>
+            <span>তুরাগ, ঢাকা</span>
+          </div>
+        </div>
+      </div>
+
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo & Branding */}
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <img src="/school-logo.jpg" alt="Kamarpara School & College" className="w-10 h-10 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform border-2 border-amber-400" />
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-base sm:text-lg font-black text-slate-900 group-hover:text-red-700 transition-colors">
+                    Kamarpara School & College
+                  </span>
+                  <span className="inline-block text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded-full border border-amber-300">
+                    ৫০ বছর
+                  </span>
+                </div>
+                <p className="text-[11px] font-bold text-red-700 -mt-0.5">
+                  সুবর্ণ জয়ন্তী ও প্রাক্তন শিক্ষার্থী পুনর্মিলনী
+                </p>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium -mt-0.5">
-                Golden Jubilee & Grand Alumni Reunion
-              </p>
-            </div>
-          </Link>
+            </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
@@ -146,5 +162,6 @@ export default function Navbar() {
         </div>
       )}
     </header>
+    </>
   );
 }
