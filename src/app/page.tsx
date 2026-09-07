@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="mt-3 inline-flex flex-wrap items-center justify-center gap-3 text-xs text-slate-300 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
             <span className="flex items-center gap-1.5 text-amber-300 font-bold">
               <Calendar className="w-3.5 h-3.5 text-amber-400" />
-              ২২ ও ২৩ জানুয়ারি
+              সম্ভাব্য তারিখ ২২ জানুয়ারী, ২০২৭
             </span>
             <span className="hidden sm:inline text-slate-500">•</span>
             <span className="flex items-center gap-1.5 font-medium">

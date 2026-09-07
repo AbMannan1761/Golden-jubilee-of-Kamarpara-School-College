@@ -68,7 +68,7 @@ export default function CountdownTimer() {
       <div className="relative z-10 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2 sm:mb-3">
           <Calendar className="w-3.5 h-3.5 text-amber-400" />
-          <span>মহাউৎসবের ক্ষণগণনা (২২ ও ২৩ জানুয়ারি)</span>
+          <span>মহোৎসবের ক্ষণগণনা (সম্ভাব্য তারিখ ২২ জানুয়ারী, ২০২৭)</span>
           <Sparkles className="w-3.5 h-3.5 text-amber-300" />
         </div>
 

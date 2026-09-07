@@ -209,7 +209,7 @@ export default function EBadgeCard({ registration }: EBadgeCardProps) {
           {/* Event Venue & Date footer */}
           <div className="mt-5 pt-3 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between">
             <span className="flex items-center gap-1">
-              <Calendar className="w-3 h-3 text-amber-600" /> ২২ ও ২৩ জানুয়ারি
+              <Calendar className="w-3 h-3 text-amber-600" /> ২২ জানুয়ারি, ২০২৭
             </span>
             <span className="flex items-center gap-1">
               <MapPin className="w-3 h-3 text-red-600" /> বিদ্যালয় অডিটোরিয়াম

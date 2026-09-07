@@ -95,7 +95,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="text-xs bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded-md font-semibold border border-amber-500/30">
-                  ২২ ও ২৩ জানুয়ারি
+                  সম্ভাব্য তারিখ ২২ জানুয়ারী, ২০২৭
                 </span>
               </div>
               <p className="text-xs text-slate-400 pt-2">
