@@ -818,6 +818,17 @@
       list.unshift(record);
       saveRegistrations(list);
 
+      // Post to Google Sheet Master
+      const googleSheetWebAppUrl = localStorage.getItem("jubilee_google_sheet_webapp_url") || "";
+      if (googleSheetWebAppUrl) {
+        fetch(googleSheetWebAppUrl, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(record)
+        }).catch(err => console.error("Sheet post error:", err));
+      }
+
       // Confetti
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 

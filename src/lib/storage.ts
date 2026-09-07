@@ -155,6 +155,37 @@ export function getStoredRegistrations(): AlumniRegistration[] {
   }
 }
 
+// Google Sheet Web App Endpoint (configurable)
+export const GOOGLE_SHEET_WEBAPP_KEY = "jubilee_google_sheet_webapp_url";
+
+export async function syncToGoogleSheet(record: AlumniRegistration): Promise<boolean> {
+  let endpoint = process.env.NEXT_PUBLIC_GOOGLE_SHEET_API_URL || "";
+  if (typeof window !== "undefined" && !endpoint) {
+    endpoint = localStorage.getItem(GOOGLE_SHEET_WEBAPP_KEY) || "";
+  }
+  if (!endpoint) {
+    console.log("No Google Sheet Web App URL configured. Saved locally.");
+    return false;
+  }
+
+  try {
+    // Send as POST request (mode no-cors or standard fetch)
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(record),
+    });
+    console.log("Synced successfully with Google Sheet Master!");
+    return true;
+  } catch (err) {
+    console.error("Google Sheet sync failed:", err);
+    return false;
+  }
+}
+
 export function saveNewRegistration(data: Omit<AlumniRegistration, "id" | "createdAt" | "status">): AlumniRegistration {
   const current = getStoredRegistrations();
   const nextNum = 1000 + current.length + 1;
@@ -173,6 +204,10 @@ export function saveNewRegistration(data: Omit<AlumniRegistration, "id" | "creat
       console.error("Storage save failed", e);
     }
   }
+
+  // Trigger Google Sheet Master sync
+  syncToGoogleSheet(newRegistration).catch(() => {});
+
   return newRegistration;
 }
 
