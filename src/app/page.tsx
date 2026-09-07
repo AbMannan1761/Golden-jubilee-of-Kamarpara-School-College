@@ -34,13 +34,6 @@ export default function HomePage() {
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-amber-600/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          {/* Milestone Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10 backdrop-blur-md">
-            <img src="/school-logo.jpg" alt="Logo" className="w-4 h-4 rounded-full border border-amber-300 object-cover" />
-            <span>Kamarpara School & College • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস (১৯৭৬ - ২০২৬)</span>
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-          </div>
-
           {/* Main Title */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight drop-shadow-xl">
             <span className="block text-amber-300 text-xl sm:text-3xl md:text-4xl font-extrabold mb-1 tracking-wide">Kamarpara School & College</span>

@@ -29,25 +29,7 @@ export default function Navbar() {
   ];
 
   return (
-    <>
-      {/* 0. Top Institution Bar */}
-      <div className="bg-gradient-to-r from-red-950 via-slate-900 to-amber-950 text-amber-100 py-1.5 px-4 text-xs font-bold border-b border-amber-500/30 no-print flex items-center justify-between">
-        <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src="/school-logo.jpg" alt="Logo" className="w-5 h-5 rounded-full border border-amber-400 object-cover" />
-            <span className="tracking-wide text-amber-300 font-extrabold text-xs sm:text-sm">Kamarpara School & College</span>
-            <span className="text-amber-500/60 hidden sm:inline">•</span>
-            <span className="text-slate-300 text-xs hidden sm:inline font-medium">কামারপাড়া স্কুল অ্যান্ড কলেজ</span>
-          </div>
-          <div className="text-[11px] text-amber-200/80 font-medium hidden md:flex items-center gap-2">
-            <span>স্থাপিত: ১৯৭৭ ইং</span>
-            <span>•</span>
-            <span>তুরাগ, ঢাকা</span>
-          </div>
-        </div>
-      </div>
-
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm transition-all">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo & Branding */}
@@ -162,6 +144,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-    </>
   );
 }
