@@ -28,9 +28,18 @@ export default function EBadgeCard({ registration }: EBadgeCardProps) {
   const badgeRef = useRef<HTMLDivElement>(null);
 
   const isVerified = registration.status === "verified";
+  const queryParams = new URLSearchParams({
+    name: registration.fullNameBn || "",
+    en: registration.fullNameEn || "",
+    batch: registration.batch || "",
+    tshirt: registration.tShirtSize || "L",
+    fee: registration.totalFee?.toString() || "1000",
+    trx: registration.trxId || "",
+    status: registration.status || "pending",
+  });
   const verificationQrValue = typeof window !== "undefined"
-    ? `${window.location.origin}/badge/${registration.id}`
-    : `https://jubilee-reunion.edu.bd/badge/${registration.id}`;
+    ? `${window.location.origin}/badge/${registration.id}?${queryParams.toString()}`
+    : `https://abmannan1761.github.io/Golden-jubilee-of-Kamarpara-School-College/?badge=${registration.id}`;
 
   const handlePrint = () => {
     window.print();

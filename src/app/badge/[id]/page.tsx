@@ -20,6 +20,29 @@ export default function BadgeDetailPage() {
       const found = getRegistrationById(id);
       if (found) {
         setRegistration(found);
+      } else if (typeof window !== "undefined") {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("name")) {
+          setRegistration({
+            id: id,
+            fullNameBn: urlParams.get("name") || "",
+            fullNameEn: urlParams.get("en") || "",
+            batch: urlParams.get("batch") || "2011",
+            phone: "তথ্য সংরক্ষিত",
+            profession: "অ্যালামনাই",
+            address: "বাংলাদেশ",
+            tShirtSize: (urlParams.get("tshirt") as "S" | "M" | "L" | "XL" | "XXL") || "L",
+            guestCount: 0,
+            baseFee: 1000,
+            guestFee: 0,
+            totalFee: parseInt(urlParams.get("fee") || "1000", 10),
+            paymentMethod: "bkash",
+            senderPhone: "",
+            trxId: urlParams.get("trx") || "VERIFIED",
+            status: (urlParams.get("status") as "verified" | "pending" | "rejected") || "verified",
+            createdAt: new Date().toISOString(),
+          });
+        }
       }
       setLoading(false);
     }
