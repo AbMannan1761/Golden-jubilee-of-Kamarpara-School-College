@@ -6,7 +6,7 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "1987",
     category: "80s",
     coordinators: [
-      { name: "মোঃ ইমরান চৌধুরী", phone: "01711-XXXXXX", role: "প্রধান সমন্বয়ক" }
+      { name: "মোঃ ইমরান চৌধুরী", phone: "01673-307882", role: "প্রধান সমন্বয়ক" }
     ]
   },
   {
@@ -14,8 +14,8 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "1988-1991",
     category: "80s",
     coordinators: [
-      { name: "মোঃ ওমর ফারুক", phone: "01819-XXXXXX", role: "সমন্বয়ক" },
-      { name: "মোঃ জামাল হোসেন", phone: "01712-XXXXXX", role: "সহ-সমন্বয়ক" }
+      { name: "মোঃ ওমর ফারুক", phone: "01671-157045", role: "সমন্বয়ক" },
+      { name: "মোঃ জামাল হোসেন", phone: "01680-530016", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -23,7 +23,7 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "1992",
     category: "90s",
     coordinators: [
-      { name: "মোঃ জসিম উদ্দিন", phone: "01911-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোঃ জসিম উদ্দিন", phone: "01617-551099", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -31,10 +31,10 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "1993",
     category: "90s",
     coordinators: [
-      { name: "মোঃ মনিরুজ্জামান (রোকনী)", phone: "01713-XXXXXX", role: "সমন্বয়ক" },
-      { name: "জমির বক্স", phone: "01815-XXXXXX", role: "সমন্বয়ক" },
-      { name: "সঞ্জয়", phone: "01912-XXXXXX", role: "সমন্বয়ক" },
-      { name: "হেলাল", phone: "01611-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোঃ মনিরুজ্জামান (রোকনী)", phone: "01915-876903", role: "সমন্বয়ক" },
+      { name: "জমির বক্স", phone: "01793-146988", role: "সমন্বয়ক" },
+      { name: "সঞ্জয়", phone: "01715-151177", role: "সমন্বয়ক" },
+      { name: "হেলাল", phone: "01620-102410", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -42,8 +42,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "1995",
     category: "90s",
     coordinators: [
-      { name: "বাবুল হোসেন", phone: "01714-XXXXXX", role: "সমন্বয়ক" },
-      { name: "নূর আলম", phone: "01816-XXXXXX", role: "সমন্বয়ক" }
+      { name: "জসিম উদ্দিন বাদল", phone: "01716-317431", role: "সমন্বয়ক" },
+      { name: "নূর আলম", phone: "01739-242222", role: "সমন্বয়ক" },
+      { name: "বাবুল হোসেন", phone: "01712-282121", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -51,8 +52,8 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "1997",
     category: "90s",
     coordinators: [
-      { name: "দেলোয়ার হোসেন", phone: "01715-XXXXXX", role: "সমন্বয়ক" },
-      { name: "মানিক", phone: "01913-XXXXXX", role: "সহ-সমন্বয়ক" }
+      { name: "মোহাম্মদ দেলোয়ার হোসেন", phone: "01552-593277", role: "সমন্বয়ক" },
+      { name: "মোঃ শরিফুল ইসলাম", phone: "01956-634555", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -60,8 +61,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2000",
     category: "2000s",
     coordinators: [
-      { name: "মোঃ সালাউদ্দিন", phone: "01716-XXXXXX", role: "সমন্বয়ক" },
-      { name: "শহীদুল্লা (রাসেল)", phone: "01817-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোঃ সালাউদ্দিন", phone: "01675-494122", role: "সমন্বয়ক" },
+      { name: "শহীদুল্লা (রাসেল)", phone: "01911-922224", role: "সমন্বয়ক" },
+      { name: "আল-মামুন", phone: "01921-250023", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -69,7 +71,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2001",
     category: "2000s",
     coordinators: [
-      { name: "উজ্জ্বল", phone: "01717-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোঃ কামরুল ইসলাম মিলন", phone: "01307-767616", role: "সমন্বয়ক" },
+      { name: "মোঃ মনির হোসেন", phone: "01675-844217", role: "সমন্বয়ক" },
+      { name: "শুভ খন্দকার (উজ্জ্বল)", phone: "01818-598827", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -77,12 +81,12 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2002",
     category: "2000s",
     coordinators: [
-      { name: "ইব্রাহিম", phone: "01718-XXXXXX", role: "সমন্বয়ক" },
-      { name: "রিপন", phone: "01818-XXXXXX", role: "সমন্বয়ক" },
-      { name: "রেজা", phone: "01914-XXXXXX", role: "সমন্বয়ক" },
-      { name: "শাহিন", phone: "01612-XXXXXX", role: "সমন্বয়ক" },
-      { name: "রিয়াজ", phone: "01511-XXXXXX", role: "সমন্বয়ক" },
-      { name: "গিয়াস উদ্দিন", phone: "01719-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোঃ গিয়াস উদ্দিন", phone: "01797-992485", role: "সমন্বয়ক" },
+      { name: "মোঃ শাহীন মিয়াজী", phone: "01675-392125", role: "সমন্বয়ক" },
+      { name: "মোঃ রেজাউল করিম", phone: "01891-920893", role: "সমন্বয়ক" },
+      { name: "ইব্রাহিম (নাবিল)", phone: "01856-083111", role: "সমন্বয়ক" },
+      { name: "সুজা খান", phone: "01670-075483", role: "সমন্বয়ক" },
+      { name: "মোঃ ফারুক হোসেন", phone: "01761-940199", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -90,9 +94,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2004",
     category: "2000s",
     coordinators: [
-      { name: "মানিক", phone: "01720-XXXXXX", role: "সমন্বয়ক" },
-      { name: "বাবুল", phone: "01819-XXXXXX", role: "সহ-সমন্বয়ক" },
-      { name: "নাসির", phone: "01915-XXXXXX", role: "সহ-সমন্বয়ক" }
+      { name: "মোঃ নাসির উদ্দিন", phone: "01613-061653", role: "সমন্বয়ক" },
+      { name: "বাবুল হোসেন", phone: "01677-365850", role: "সহ-সমন্বয়ক" },
+      { name: "মোঃ রেজাউল ইসলাম (মানিক)", phone: "01934-996246", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -100,10 +104,10 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2006",
     category: "2000s",
     coordinators: [
-      { name: "মোঃ মোক্তার হোসেন", phone: "01721-XXXXXX", role: "সমন্বয়ক" },
-      { name: "সোহেল", phone: "01820-XXXXXX", role: "সমন্বয়ক" },
-      { name: "জামিল", phone: "01916-XXXXXX", role: "সমন্বয়ক" },
-      { name: "শাহ আলম", phone: "01613-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মুক্তার হোসেন সামির", phone: "01814-350489", role: "সমন্বয়ক" },
+      { name: "নূর আলম রনি", phone: "01797-998145", role: "সমন্বয়ক" },
+      { name: "সোহেল আহম্মেদ", phone: "01673-788744", role: "সমন্বয়ক" },
+      { name: "শাহ আলম", phone: "01886-167799", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -111,8 +115,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2007",
     category: "2000s",
     coordinators: [
-      { name: "মোঃ রাসেল", phone: "01722-XXXXXX", role: "সমন্বয়ক" },
-      { name: "সাইফুল", phone: "01821-XXXXXX", role: "সহ-সমন্বয়ক" }
+      { name: "সাইফুল ইসলাম", phone: "01670-563232", role: "সমন্বয়ক" },
+      { name: "মোঃ রাসেল (রাকিব)", phone: "01683-938221", role: "সহ-সমন্বয়ক" },
+      { name: "শাহাদত হোসেন", phone: "01671-167220", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -120,7 +125,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2009",
     category: "2000s",
     coordinators: [
-      { name: "আকরাম", phone: "01723-XXXXXX", role: "সমন্বয়ক" }
+      { name: "আকরাম", phone: "01671-169952", role: "সমন্বয়ক" },
+      { name: "তারেক", phone: "01673-892460", role: "সমন্বয়ক" },
+      { name: "মাহমুদুল হাসান বাবু", phone: "01758-529641", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -128,7 +135,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2010",
     category: "2010s",
     coordinators: [
-      { name: "মোঃ কাউসার", phone: "01724-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোহাম্মদ কাউসার আহম্মেদ", phone: "01760-942141", role: "সমন্বয়ক" },
+      { name: "ওমর ফারুক", phone: "01676-667720", role: "সমন্বয়ক" },
+      { name: "মোঃ রিপন আহমেদ", phone: "01912-857250", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -136,8 +145,10 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2011",
     category: "2010s",
     coordinators: [
-      { name: "হাসনাত (রুবেল)", phone: "01725-XXXXXX", role: "সমন্বয়ক" },
-      { name: "মান্নান", phone: "01822-XXXXXX", role: "সমন্বয়ক" }
+      { name: "আবুল হাসনাত (রুবেল)", phone: "01687-438348", role: "সমন্বয়ক" },
+      { name: "মোঃ আব্দুল মান্নান", phone: "01928-517161", role: "সমন্বয়ক" },
+      { name: "সারোয়ার তুষার", phone: "01673-327082", role: "সমন্বয়ক" },
+      { name: "মোহাম্মদ মেহেদি হাসান রনি", phone: "01534-710814", role: "সমন্বয়ক" }
     ]
   },
   {
@@ -145,7 +156,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2012",
     category: "2010s",
     coordinators: [
-      { name: "রনি আহমেদ", phone: "01726-XXXXXX", role: "সমন্বয়ক" }
+      { name: "মোঃ এস,এম সাইদুজ্জামান (রনি)", phone: "01682-571024", role: "সমন্বয়ক" },
+      { name: "মোঃ উসমান গনি", phone: "01972-258774", role: "সমন্বয়ক" },
+      { name: "মোঃ রিপন মোল্ল্যা", phone: "01983-975176", role: "সহ-সমন্বয়ক" }
     ]
   },
   {
@@ -153,7 +166,9 @@ export const BATCH_COORDINATORS: BatchCoordinator[] = [
     batch: "2018",
     category: "2010s",
     coordinators: [
-      { name: "মীম", phone: "01727-XXXXXX", role: "সমন্বয়ক" }
+      { name: "তাবাসুম মীম", phone: "01619-094951", role: "সমন্বয়ক" },
+      { name: "হেলেনা আক্তার সিমু", phone: "01608-795422", role: "সমন্বয়ক" },
+      { name: "সামান্তা", phone: "01946-237528", role: "সহ-সমন্বয়ক" }
     ]
   }
 ];

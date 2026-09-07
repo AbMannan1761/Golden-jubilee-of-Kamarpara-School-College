@@ -132,14 +132,14 @@ export default function CoordinatorDirectory() {
                     {item.coordinators.map((c, i) => (
                       <div
                         key={i}
-                        className="p-3 rounded-xl bg-slate-50/80 hover:bg-amber-50/60 border border-slate-100 transition-colors flex items-start justify-between gap-3"
+                        className="p-3 rounded-xl bg-slate-50/80 hover:bg-amber-50/60 border border-slate-100 transition-colors flex items-center justify-between gap-3"
                       >
-                        <div className="flex items-start gap-2.5">
-                          <div className="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center shrink-0">
                             <UserCheck className="w-4 h-4" />
                           </div>
-                          <div>
-                            <p className="text-sm font-bold text-slate-900">
+                          <div className="min-w-0">
+                            <p className="text-sm font-bold text-slate-900 truncate">
                               {c.name}
                             </p>
                             <p className="text-[11px] text-slate-500 font-medium">
@@ -148,13 +148,16 @@ export default function CoordinatorDirectory() {
                           </div>
                         </div>
 
-                        <a
-                          href={`tel:${c.phone || "01711234567"}`}
-                          title="কল করুন"
-                          className="shrink-0 p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-emerald-700 hover:border-emerald-400 hover:bg-emerald-50 transition shadow-sm"
-                        >
-                          <Phone className="w-3.5 h-3.5" />
-                        </a>
+                        {c.phone && (
+                          <a
+                            href={`tel:${c.phone.replace(/[^0-9+]/g, "")}`}
+                            title={`কল করুন: ${c.phone}`}
+                            className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white border border-amber-200 hover:border-emerald-500 text-slate-800 hover:text-emerald-700 hover:bg-emerald-50 transition shadow-2xs text-xs font-bold"
+                          >
+                            <Phone className="w-3.5 h-3.5 text-amber-600 group-hover:text-emerald-600" />
+                            <span className="font-mono tracking-tight">{toBengaliDigits(c.phone)}</span>
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>
