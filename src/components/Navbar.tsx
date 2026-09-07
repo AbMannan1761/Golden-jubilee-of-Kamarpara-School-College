@@ -31,22 +31,22 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo & Branding */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
-              <Award className="w-7 h-7 text-amber-100" />
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+              <Award className="w-5 h-5 text-amber-100" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-xl font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
+                <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
                   সুবর্ণ জয়ন্তী ও পুনর্মিলনী
                 </span>
-                <span className="inline-block text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full border border-amber-300">
+                <span className="inline-block text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded-full border border-amber-300">
                   ৫০ বছর
                 </span>
               </div>
-              <p className="text-xs text-slate-500 font-medium">
+              <p className="text-[11px] text-slate-500 font-medium -mt-0.5">
                 Golden Jubilee & Grand Alumni Reunion
               </p>
             </div>

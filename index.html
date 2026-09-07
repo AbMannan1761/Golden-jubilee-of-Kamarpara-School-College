@@ -74,44 +74,44 @@
   <!-- 1. TOP NAVBAR -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <a href="#" onclick="showSection('home')" class="flex items-center gap-3 group">
-          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
-            <i data-lucide="award" class="w-7 h-7 text-amber-100"></i>
+        <a href="#" onclick="showSection('home')" class="flex items-center gap-2.5 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+            <i data-lucide="award" class="w-5 h-5 text-amber-100"></i>
           </div>
           <div>
             <div class="flex items-center gap-1.5">
-              <span class="text-xl font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
+              <span class="text-base sm:text-lg font-bold bg-gradient-to-r from-red-700 via-amber-600 to-amber-700 bg-clip-text text-transparent">
                 সুবর্ণ জয়ন্তী ও পুনর্মিলনী
               </span>
               <span class="text-[10px] font-semibold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full border border-amber-300">
                 ৫০ বছর
               </span>
             </div>
-            <p className="text-xs text-slate-500 font-medium">Golden Jubilee & Grand Alumni Reunion</p>
+            <p class="text-[11px] text-slate-500 font-medium -mt-0.5">Golden Jubilee & Grand Alumni Reunion</p>
           </div>
         </a>
 
         <!-- Navigation Links -->
         <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-          <button onclick="showSection('home')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
-            <i data-lucide="sparkles" class="w-4 h-4 text-slate-400"></i> মূল পাতা
+          <button onclick="showSection('home')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-slate-400"></i> মূল পাতা
           </button>
-          <button onclick="scrollToCoordinators()" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
-            <i data-lucide="users" class="w-4 h-4 text-slate-400"></i> ব্যাচ সমন্বয়ক
+          <button onclick="scrollToCoordinators()" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="users" class="w-3.5 h-3.5 text-slate-400"></i> ব্যাচ সমন্বয়ক
           </button>
-          <button onclick="scrollToNotices()" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
-            <i data-lucide="bell" class="w-4 h-4 text-slate-400"></i> নোটিশ
+          <button onclick="scrollToNotices()" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="bell" class="w-3.5 h-3.5 text-slate-400"></i> নোটিশ
           </button>
-          <button onclick="showSection('register')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 shadow-md shadow-amber-500/25 hover:scale-105 transition-all">
-            <i data-lucide="user-plus" class="w-4 h-4"></i> রেজিস্ট্রেশন করুন
+          <button onclick="showSection('register')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 shadow-md hover:scale-105 transition-all">
+            <i data-lucide="user-plus" class="w-3.5 h-3.5"></i> রেজিস্ট্রেশন করুন
           </button>
-          <button onclick="showSection('badge-search')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
-            <i data-lucide="id-card" class="w-4 h-4 text-slate-400"></i> ই-ব্যাজ
+          <button onclick="showSection('badge-search')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="id-card" class="w-3.5 h-3.5 text-slate-400"></i> ই-ব্যাজ
           </button>
-          <button onclick="showSection('admin')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
-            <i data-lucide="shield-check" class="w-4 h-4 text-slate-400"></i> অ্যাডমিন
+          <button onclick="showSection('admin')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:text-red-700 hover:bg-slate-50 flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-slate-400"></i> অ্যাডমিন
           </button>
         </nav>
 
@@ -150,73 +150,73 @@
     <!-- ==================== SECTION: HOME ==================== -->
     <div id="sec-home">
       <!-- Hero Section -->
-      <section class="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-lg shadow-amber-500/10">
-            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+      <section class="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-4 pb-8 sm:pt-6 sm:pb-10 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
             <span>১৯৭৬ - ২০২৬ • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস</span>
-            <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
           </div>
 
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight sm:leading-none">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
             <span class="block text-white">সুবর্ণ জয়ন্তী ও</span>
-            <span class="block mt-2 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
+            <span class="block mt-1 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
               প্রাক্তন শিক্ষার্থী পুনর্মিলনী
             </span>
           </h1>
 
-          <p class="mt-4 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
             স্মৃতির মায়ায় আবার বাঁধিব সুর, ফিরে চল চিরচেনা সেই প্রিয় প্রাঙ্গণে। ৫০ বছর পূর্তির আনন্দ উৎসবে সকল প্রাক্তন শিক্ষার্থীদের প্রাণঢালা আমন্ত্রণ।
           </p>
 
           <!-- Date & Venue -->
-          <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-300 bg-white/5 border border-white/10 px-5 py-2.5 rounded-2xl backdrop-blur-md">
+          <div class="mt-3 inline-flex flex-wrap items-center justify-center gap-3 text-xs text-slate-300 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
             <span class="flex items-center gap-1.5 text-amber-300 font-bold">
-              <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-400"></i>
               ২২ ও ২৩ জানুয়ারি
             </span>
             <span class="hidden sm:inline text-slate-500">•</span>
             <span class="flex items-center gap-1.5 font-medium">
-              <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-400"></i>
               বিদ্যালয় মূল প্রাঙ্গণ ও অডিটোরিয়াম
             </span>
           </div>
 
           <!-- Countdown Timer -->
-          <div class="w-full max-w-3xl mx-auto my-8 p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-amber-500/40 shadow-2xl backdrop-blur-xl">
-            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-4">
-              <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+          <div class="w-full max-w-2xl mx-auto my-2 sm:my-3 p-3.5 sm:p-5 rounded-2xl bg-slate-900/90 border-2 border-amber-500/40 shadow-xl backdrop-blur-xl">
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2 sm:mb-3">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
               <span>মহাউৎসবের ক্ষণগণনা (২২ ও ২৩ জানুয়ারি)</span>
             </div>
 
-            <div class="grid grid-cols-4 gap-3 sm:gap-4 w-full">
-              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
-                <span id="timer-days" class="text-3xl sm:text-5xl font-black text-white">১৩৭</span>
-                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">দিন</span>
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 w-full">
+              <div class="flex flex-col items-center p-2 sm:p-3 rounded-xl bg-white/5 border border-amber-500/20">
+                <span id="timer-days" class="text-2xl sm:text-4xl font-black text-white">১৩৭</span>
+                <span class="text-xs font-bold text-amber-400 mt-0.5">দিন</span>
               </div>
-              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
-                <span id="timer-hours" class="text-3xl sm:text-5xl font-black text-white">২২</span>
-                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">ঘণ্টা</span>
+              <div class="flex flex-col items-center p-2 sm:p-3 rounded-xl bg-white/5 border border-amber-500/20">
+                <span id="timer-hours" class="text-2xl sm:text-4xl font-black text-white">২২</span>
+                <span class="text-xs font-bold text-amber-400 mt-0.5">ঘণ্টা</span>
               </div>
-              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
-                <span id="timer-minutes" class="text-3xl sm:text-5xl font-black text-white">৪৮</span>
-                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">মিনিট</span>
+              <div class="flex flex-col items-center p-2 sm:p-3 rounded-xl bg-white/5 border border-amber-500/20">
+                <span id="timer-minutes" class="text-2xl sm:text-4xl font-black text-white">৪৮</span>
+                <span class="text-xs font-bold text-amber-400 mt-0.5">মিনিট</span>
               </div>
-              <div class="flex flex-col items-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20">
-                <span id="timer-seconds" class="text-3xl sm:text-5xl font-black text-white">১৯</span>
-                <span class="text-xs sm:text-sm font-bold text-amber-400 mt-1">সেকেন্ড</span>
+              <div class="flex flex-col items-center p-2 sm:p-3 rounded-xl bg-white/5 border border-amber-500/20">
+                <span id="timer-seconds" class="text-2xl sm:text-4xl font-black text-white">১৯</span>
+                <span class="text-xs font-bold text-amber-400 mt-0.5">সেকেন্ড</span>
               </div>
             </div>
           </div>
 
           <!-- CTAs -->
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onclick="showSection('register')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-base shadow-xl shadow-amber-500/25 hover:scale-105 transition-all">
-              <i data-lucide="user-plus" class="w-5 h-5"></i>
+          <div class="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button onclick="showSection('register')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:scale-105 transition-all">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
               <span>অনলাইন রেজিস্ট্রেশন করুন</span>
             </button>
-            <button onclick="showSection('badge-search')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base backdrop-blur-md hover:scale-105 transition-all">
-              <i data-lucide="id-card" class="w-5 h-5 text-amber-400"></i>
+            <button onclick="showSection('badge-search')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm backdrop-blur-md hover:scale-105 transition-all">
+              <i data-lucide="id-card" class="w-4 h-4 text-amber-400"></i>
               <span>ই-ব্যাজ / স্লিপ সংগ্রহ</span>
             </button>
           </div>

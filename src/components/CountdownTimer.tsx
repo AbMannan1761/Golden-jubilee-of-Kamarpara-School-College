@@ -60,39 +60,39 @@ export default function CountdownTimer() {
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto my-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900/90 via-red-950/80 to-slate-900/90 border-2 border-amber-500/40 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+    <div className="w-full max-w-2xl mx-auto my-2 sm:my-3 p-3.5 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900/95 via-red-950/90 to-slate-900/95 border-2 border-amber-500/40 shadow-xl backdrop-blur-xl relative overflow-hidden">
       {/* Background festive ambient glow */}
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
-      <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-red-500/20 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/15 rounded-full blur-xl pointer-events-none" />
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-red-500/15 rounded-full blur-xl pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold mb-4">
-          <Calendar className="w-4 h-4 text-amber-400" />
-          <span>মহাউৎসবের শুভ ক্ষণগণনা (২২ ও ২৩ জানুয়ারি)</span>
-          <Sparkles className="w-4 h-4 text-amber-300" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2 sm:mb-3">
+          <Calendar className="w-3.5 h-3.5 text-amber-400" />
+          <span>মহাউৎসবের ক্ষণগণনা (২২ ও ২৩ জানুয়ারি)</span>
+          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
         </div>
 
-        <div className="grid grid-cols-4 gap-2.5 sm:gap-4 w-full">
+        <div className="grid grid-cols-4 gap-2 sm:gap-3 w-full">
           {units.map((unit, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl bg-white/5 border border-amber-500/20 hover:border-amber-400/50 transition-all shadow-inner group"
+              className="flex flex-col items-center justify-center p-2 sm:p-3 rounded-xl bg-white/5 border border-amber-500/20 hover:border-amber-400/50 transition-all shadow-inner group"
             >
-              <span className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white group-hover:scale-105 transition-transform">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white group-hover:scale-105 transition-transform">
                 {isClient ? toBengaliDigits(unit.value.toString().padStart(2, "0")) : "--"}
               </span>
-              <span className="text-xs sm:text-sm font-bold text-amber-400 mt-1">
+              <span className="text-xs font-bold text-amber-400 mt-0.5">
                 {unit.labelBn}
               </span>
-              <span className="text-[10px] uppercase tracking-wider text-slate-400 font-medium hidden sm:inline-block">
+              <span className="text-[9px] uppercase tracking-wider text-slate-400 font-medium hidden sm:inline-block">
                 {unit.labelEn}
               </span>
             </div>
           ))}
         </div>
 
-        <p className="text-xs sm:text-sm text-slate-300 mt-4 flex items-center gap-1.5">
-          <Clock className="w-4 h-4 text-amber-400" />
+        <p className="text-[11px] sm:text-xs text-slate-300 mt-2 flex items-center gap-1.5">
+          <Clock className="w-3 h-3 text-amber-400" />
           <span>দিনটি স্মৃতির পাতায় অমর করে রাখতে দ্রুত রেজিস্ট্রেশন সম্পন্ন করুন</span>
         </p>
       </div>

@@ -22,65 +22,65 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-900 text-white pt-4 pb-8 sm:pt-6 sm:pb-10 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
         {/* Ambient Glows */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-amber-500/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-10 -right-10 w-64 h-64 bg-amber-600/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto text-center relative z-10">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Milestone Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-lg shadow-amber-500/10">
-            <Award className="w-4 h-4 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold mb-2 sm:mb-3 shadow-md shadow-amber-500/10">
+            <Award className="w-3.5 h-3.5 text-amber-400" />
             <span>১৯৭৬ - ২০২৬ • ৫০ বছরের গৌরবোজ্জ্বল ইতিহাস</span>
-            <Sparkles className="w-4 h-4 text-amber-300" />
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight sm:leading-none">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
             <span className="block text-white">সুবর্ণ জয়ন্তী ও</span>
-            <span className="block mt-2 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
+            <span className="block mt-1 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
               প্রাক্তন শিক্ষার্থী পুনর্মিলনী
             </span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
             স্মৃতির মায়ায় আবার বাঁধিব সুর, ফিরে চল চিরচেনা সেই প্রিয় প্রাঙ্গণে। ৫০ বছর পূর্তির আনন্দ উৎসবে সকল প্রাক্তন শিক্ষার্থীদের প্রাণঢালা আমন্ত্রণ।
           </p>
 
           {/* Date & Location Pill */}
-          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-300 bg-white/5 border border-white/10 px-5 py-2.5 rounded-2xl backdrop-blur-md">
+          <div className="mt-3 inline-flex flex-wrap items-center justify-center gap-3 text-xs text-slate-300 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
             <span className="flex items-center gap-1.5 text-amber-300 font-bold">
-              <Calendar className="w-4 h-4 text-amber-400" />
+              <Calendar className="w-3.5 h-3.5 text-amber-400" />
               ২২ ও ২৩ জানুয়ারি
             </span>
             <span className="hidden sm:inline text-slate-500">•</span>
             <span className="flex items-center gap-1.5 font-medium">
-              <MapPin className="w-4 h-4 text-red-400" />
+              <MapPin className="w-3.5 h-3.5 text-red-400" />
               বিদ্যালয় মূল প্রাঙ্গণ ও অডিটোরিয়াম
             </span>
           </div>
 
           {/* Live Countdown Timer */}
-          <div className="mt-6">
+          <div className="mt-3 sm:mt-4">
             <CountdownTimer />
           </div>
 
           {/* Call to Actions */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/register"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-black text-base shadow-xl shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-black text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all"
             >
-              <UserPlus className="w-5 h-5" />
+              <UserPlus className="w-4 h-4" />
               <span>অনলাইন রেজিস্ট্রেশন করুন</span>
             </Link>
 
             <Link
               href="/badge"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base backdrop-blur-md hover:scale-105 active:scale-95 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm backdrop-blur-md hover:scale-105 active:scale-95 transition-all"
             >
-              <IdCard className="w-5 h-5 text-amber-400" />
+              <IdCard className="w-4 h-4 text-amber-400" />
               <span>ই-ব্যাজ / স্লিপ সংগ্রহ</span>
             </Link>
           </div>
