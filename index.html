@@ -1069,18 +1069,25 @@
 
       const record = {
         id: newId,
+        fullNameBn: document.getElementById('reg-name-bn').value,
+        fullNameEn: document.getElementById('reg-name-en').value,
         nameBn: document.getElementById('reg-name-bn').value,
         nameEn: document.getElementById('reg-name-en').value,
         batch: document.getElementById('reg-batch').value,
         phone: document.getElementById('reg-phone').value,
+        email: "",
         profession: document.getElementById('reg-profession').value,
         address: document.getElementById('reg-address').value,
+        tShirtSize: selectedTShirt,
         tShirt: selectedTShirt,
         guestCount: currentGuestCount,
         totalFee: total,
+        paymentMethod: "bkash",
+        senderPhone: document.getElementById('reg-phone').value,
         trxId: document.getElementById('reg-trxid').value.toUpperCase(),
         photoBase64: currentPhotoBase64 || "",
-        status: 'pending'
+        photoUrl: currentPhotoBase64 || "",
+        status: 'Pending'
       };
 
       list.unshift(record);
