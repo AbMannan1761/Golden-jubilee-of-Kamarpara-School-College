@@ -626,6 +626,37 @@
             </div>
           </div>
 
+          <!-- Cloud Integration Panel -->
+          <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <i data-lucide="cloud" class="w-5 h-5 text-amber-600"></i>
+                <h3 class="text-sm font-bold text-slate-900">গুগল শিট ও গুগল ড্রাইভ সিঙ্ক কন্ট্রোল</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="https://docs.google.com/spreadsheets/d/1H7GFUB1_no906qPDE6ZmZaahtY_vTTXVv4ba7ZFAV_U/edit?usp=sharing" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-[11px] font-bold transition">
+                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> মাস্টার শিট খুলুন
+                </a>
+                <a href="https://drive.google.com/drive/folders/1kSVF9ZrWBjexGlqT2owPO2hHUROF94vF?usp=sharing" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 text-[11px] font-bold transition">
+                  <i data-lucide="folder" class="w-3.5 h-3.5"></i> ফটো ড্রাইভ ফোল্ডার
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <input type="url" id="admin-sheet-api-url" placeholder="Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)" class="flex-grow px-3 py-2 rounded-xl border border-slate-300 text-xs font-mono outline-none focus:ring-2 focus:ring-amber-500 bg-white">
+              <button onclick="saveSheetApiUrl()" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shrink-0">
+                URL সংরক্ষণ
+              </button>
+              <button onclick="syncAllToGoogleSheet()" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition shrink-0 flex items-center justify-center gap-1.5">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> শিটে ডাটা পাঠান
+              </button>
+            </div>
+            <p id="admin-sheet-sync-status" class="text-[11px] text-slate-500">
+              * ওয়েব অ্যাপের মূল URL (যা https://script.google.com/macros/s/.../exec দিয়ে শেষ হয়) এখানে সংরক্ষণ করুন।
+            </p>
+          </div>
+
           <!-- Table -->
           <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
@@ -881,8 +912,10 @@
         fetch(googleSheetWebAppUrl, {
           method: "POST",
           mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(record)
+        }).then(() => {
+          console.log("Registration successfully transmitted to Google Sheet & Drive!");
         }).catch(err => console.error("Sheet/Drive post error:", err));
       }
 
@@ -1068,6 +1101,65 @@
       document.body.removeChild(link);
     }
 
+    function saveSheetApiUrl() {
+      const input = document.getElementById('admin-sheet-api-url');
+      if (!input) return;
+      const url = input.value.trim();
+      if (!url) {
+        alert("দয়া করে সঠিক Web App URL দিন।");
+        return;
+      }
+      localStorage.setItem("jubilee_google_sheet_webapp_url", url);
+      const stat = document.getElementById('admin-sheet-sync-status');
+      if (stat) {
+        stat.innerText = "✓ Web App URL সফলভাবে সংরক্ষিত হয়েছে!";
+        stat.className = "text-[11px] text-emerald-700 font-bold";
+      }
+      alert("ওয়েব অ্যাপ URL সংরক্ষিত হয়েছে!");
+    }
+
+    async function syncAllToGoogleSheet() {
+      const savedUrl = localStorage.getItem("jubilee_google_sheet_webapp_url");
+      const inputUrl = document.getElementById('admin-sheet-api-url') ? document.getElementById('admin-sheet-api-url').value.trim() : "";
+      const url = inputUrl || savedUrl;
+      if (!url) {
+        alert("প্রথমে গুগল ওয়েব অ্যাপ URL প্রদান করুন।");
+        return;
+      }
+      const list = getRegistrations();
+      if (list.length === 0) {
+        alert("পাঠানোর মতো কোনো রেজিস্ট্রেশন ডাটা নেই।");
+        return;
+      }
+
+      const stat = document.getElementById('admin-sheet-sync-status');
+      if (stat) {
+        stat.innerText = "গুগল শিট ও ড্রাইভ ফোল্ডারে ডাটা পাঠানো হচ্ছে...";
+        stat.className = "text-[11px] text-amber-700 font-bold";
+      }
+
+      let count = 0;
+      for (const item of list) {
+        try {
+          await fetch(url, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(item)
+          });
+          count++;
+        } catch (e) {
+          console.error("Sync error:", e);
+        }
+      }
+
+      if (stat) {
+        stat.innerText = `✓ মোট ${count} টি রেজিস্ট্রেশন ডাটা সফলভাবে গুগল শিটে সিঙ্ক করা হয়েছে!`;
+        stat.className = "text-[11px] text-emerald-700 font-bold";
+      }
+      alert(`${count} টি ডাটা সফলভাবে গুগল শিটে পাঠানো হয়েছে! অনুগ্রহ করে গুগল শিট রিফ্রেশ করে দেখুন।`);
+    }
+
     // Populate Batch Select (1970 to 2026)
     window.addEventListener('DOMContentLoaded', () => {
       const sel = document.getElementById('reg-batch');
@@ -1081,6 +1173,16 @@
         sel.value = "2011";
       }
       renderCoordinators(COORDINATORS);
+
+      const savedSheetUrl = localStorage.getItem("jubilee_google_sheet_webapp_url");
+      if (savedSheetUrl && document.getElementById('admin-sheet-api-url')) {
+        document.getElementById('admin-sheet-api-url').value = savedSheetUrl;
+        const stat = document.getElementById('admin-sheet-sync-status');
+        if (stat) {
+          stat.innerText = "✓ Web App URL সংরক্ষিত আছে এবং ক্লাউড সিঙ্ক সক্রিয়।";
+          stat.className = "text-[11px] text-emerald-700 font-bold";
+        }
+      }
 
       // Check if opened via QR Code scan (?badge=...)
       const urlParams = new URLSearchParams(window.location.search);
