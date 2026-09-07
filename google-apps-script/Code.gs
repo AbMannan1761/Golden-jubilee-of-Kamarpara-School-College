@@ -1,10 +1,13 @@
 /**
  * কামারপাড়া স্কুল অ্যান্ড কলেজ সুবর্ণ জয়ন্তী ও প্রাক্তন শিক্ষার্থী পুনর্মিলনী
- * Google Apps Script Master Sheet Integration
- * Spreadsheet ID: 1H7GFUB1_no906qPDE6ZmZaahtY_vTTXVv4ba7ZFAV_U
+ * Google Apps Script Master Sheet & Google Drive Photo Integration
+ * 
+ * Master Spreadsheet ID: 1H7GFUB1_no906qPDE6ZmZaahtY_vTTXVv4ba7ZFAV_U
+ * Photo Google Drive Folder ID: 1kSVF9ZrWBjexGlqT2owPO2hHUROF94vF
  */
 
 const SPREADSHEET_ID = "1H7GFUB1_no906qPDE6ZmZaahtY_vTTXVv4ba7ZFAV_U";
+const DRIVE_FOLDER_ID = "1kSVF9ZrWBjexGlqT2owPO2hHUROF94vF";
 const SHEET_NAME = "MasterRegistrations";
 
 // Initialize Sheet with Headers if not exists
@@ -29,6 +32,7 @@ function getOrCreateSheet() {
       "প্রেরক মোবাইল",
       "Transaction ID (TrxID)",
       "পেমেন্ট স্ট্যাটাস",
+      "Google Drive ছবি লিংক",
       "নিবন্ধনের সময়"
     ];
     
@@ -44,7 +48,7 @@ function getOrCreateSheet() {
   return sheet;
 }
 
-// Handle POST Requests (Alumni Registration Form Submission)
+// Handle POST Requests (Alumni Registration & Photo Upload to Google Drive)
 function doPost(e) {
   try {
     let data;
@@ -59,7 +63,28 @@ function doPost(e) {
     const sheet = getOrCreateSheet();
     const timestamp = new Date().toLocaleString("bn-BD", { timeZone: "Asia/Dhaka" });
 
-    // Row mapping
+    // 1. Save Photo to Google Drive Folder if provided
+    let photoDriveUrl = "";
+    const rawPhoto = data.photoBase64 || data.photoUrl;
+    if (rawPhoto && rawPhoto.indexOf("base64,") !== -1) {
+      try {
+        const folder = DriveApp.getFolderById(DRIVE_FOLDER_ID);
+        const match = rawPhoto.match(/^data:(image\/[a-zA-Z0-9.+]+);base64,(.+)$/);
+        const contentType = match ? match[1] : (data.photoType || "image/jpeg");
+        const base64Data = match ? match[2] : rawPhoto.split("base64,")[1];
+        const decoded = Utilities.base64Decode(base64Data);
+        const safeName = (data.fullNameEn || data.nameEn || "alumni").replace(/[^a-zA-Z0-9]/g, "_");
+        const fileName = (data.id || "SJ-2026") + "_" + safeName + "_" + (data.phone || "") + ".jpg";
+        const blob = Utilities.newBlob(decoded, contentType, fileName);
+        const file = folder.createFile(blob);
+        file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+        photoDriveUrl = file.getUrl();
+      } catch (driveErr) {
+        Logger.log("Google Drive photo upload error: " + driveErr);
+      }
+    }
+
+    // 2. Append Row to Master Google Sheet
     const row = [
       data.id || "",
       data.fullNameBn || data.nameBn || "",
@@ -76,6 +101,7 @@ function doPost(e) {
       "'" + (data.senderPhone || ""),
       data.trxId || "",
       data.status || "Pending",
+      photoDriveUrl,
       timestamp
     ];
 
@@ -84,8 +110,9 @@ function doPost(e) {
     return ContentService.createTextOutput(
       JSON.stringify({
         status: "success",
-        message: "Registration saved to Google Sheet successfully",
-        id: data.id
+        message: "Registration and photo saved successfully",
+        id: data.id,
+        photoDriveUrl: photoDriveUrl
       })
     ).setMimeType(ContentService.MimeType.JSON);
 
@@ -99,7 +126,7 @@ function doPost(e) {
   }
 }
 
-// Handle GET Requests (Fetch All Registrations or Lookup by ID/Phone)
+// Handle GET Requests
 function doGet(e) {
   try {
     const sheet = getOrCreateSheet();
@@ -110,9 +137,7 @@ function doGet(e) {
       ).setMimeType(ContentService.MimeType.JSON);
     }
 
-    const headers = rows[0];
     const data = [];
-
     for (let i = 1; i < rows.length; i++) {
       const r = rows[i];
       data.push({
@@ -131,27 +156,13 @@ function doGet(e) {
         senderPhone: r[12].toString().replace(/^'/, ''),
         trxId: r[13],
         status: r[14],
-        createdAt: r[15]
+        photoDriveUrl: r[15] || "",
+        createdAt: r[16] || ""
       });
     }
 
-    // Optional query param: ?id=SJ-2026-1001 or ?phone=017XXXXXXXX
-    const query = e && e.parameter ? (e.parameter.query || e.parameter.id || e.parameter.phone || "").toLowerCase().trim() : "";
-    let filtered = data;
-    if (query) {
-      filtered = data.filter(item => 
-        (item.id && item.id.toLowerCase().includes(query)) ||
-        (item.phone && item.phone.includes(query)) ||
-        (item.trxId && item.trxId.toLowerCase().includes(query))
-      );
-    }
-
     return ContentService.createTextOutput(
-      JSON.stringify({
-        status: "success",
-        count: filtered.length,
-        data: filtered
-      })
+      JSON.stringify({ status: "success", count: data.length, data: data })
     ).setMimeType(ContentService.MimeType.JSON);
 
   } catch (err) {

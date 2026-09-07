@@ -18,7 +18,8 @@ import {
   Sparkles, 
   DollarSign,
   Shirt,
-  Calendar
+  Calendar,
+  Camera
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { saveNewRegistration, toBengaliDigits, formatBDT } from "@/lib/storage";
@@ -187,10 +188,43 @@ export default function RegistrationForm() {
 
           {/* 1. Personal Details */}
           <div>
-            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
-              <User className="w-5 h-5 text-amber-600" />
-              ১. ব্যক্তিগত পরিচিতি
-            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 mb-4 border-b border-slate-200 gap-2">
+              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <User className="w-5 h-5 text-amber-600" />
+                ১. ব্যক্তিগত পরিচিতি
+              </h2>
+
+              {/* Photo Upload Option (Positioned at top right) */}
+              <label htmlFor="reg-photo-input" className="cursor-pointer group flex items-center gap-2.5 bg-amber-50/90 hover:bg-amber-100/90 border border-amber-300 px-3 py-1.5 rounded-xl shadow-xs transition select-none self-start sm:self-auto">
+                <div className="relative w-10 h-10 rounded-lg bg-white border border-dashed border-amber-400 flex items-center justify-center overflow-hidden shrink-0 shadow-inner group-hover:border-amber-600">
+                  {photoPreview ? (
+                    <img src={photoPreview} className="w-full h-full object-cover" alt="Profile" />
+                  ) : (
+                    <Camera className="w-5 h-5 text-amber-600" />
+                  )}
+                </div>
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-slate-900 group-hover:text-amber-800 flex items-center gap-1">
+                      <Upload className="w-3.5 h-3.5 text-amber-600" /> ছবি আপলোড
+                    </span>
+                    <span className="text-[9px] font-bold bg-amber-200 text-amber-900 px-1 py-0.2 rounded">অপশনাল</span>
+                  </div>
+                  {photoPreview ? (
+                    <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-0.5">✓ ছবি সিলেক্ট হয়েছে</span>
+                  ) : (
+                    <p className="text-[10px] text-slate-500 leading-none mt-0.5">পাসপোর্ট সাইজ ছবি</p>
+                  )}
+                </div>
+                <input
+                  id="reg-photo-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePhotoUpload}
+                  className="hidden"
+                />
+              </label>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
