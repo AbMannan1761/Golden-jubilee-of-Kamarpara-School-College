@@ -11,7 +11,7 @@ export interface AlumniRegistration {
   guestCount: number;
   guestNames?: string;
   baseFee: number; // 1000
-  guestFee: number; // 500 per guest
+  guestFee: number; // 1000 per guest
   totalFee: number;
   photoUrl?: string;
   paymentMethod: 'bkash' | 'nagad' | 'rocket';

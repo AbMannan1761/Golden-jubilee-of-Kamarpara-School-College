@@ -73,8 +73,8 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-slate-400">
               <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 text-xs space-y-1">
                 <p className="text-amber-300 font-semibold">মূল রেজিস্ট্রেশন ফি: ১,০০০ টাকা</p>
-                <p className="text-slate-300">অতিথি প্রতি: ৫০০ টাকা</p>
-                <p className="text-slate-400">উপহার সামগ্রী, টি-শার্ট ও বুফে খাবার অন্তর্ভুক্ত</p>
+                <p className="text-slate-300">অতিথি প্রতি: ১,০০০ টাকা (টি-শার্ট ব্যতীত)</p>
+                <p className="text-slate-400">শিক্ষার্থীদের জন্য স্মরণিকা টি-শার্ট ও সবার জন্য গ্র্যান্ড বুফে খাবার অন্তর্ভুক্ত</p>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-300">
                 <Phone className="w-3.5 h-3.5 text-amber-400" />

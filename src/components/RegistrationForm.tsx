@@ -64,9 +64,9 @@ export default function RegistrationForm() {
     setTimeout(() => setCopiedNumber(null), 2000);
   };
 
-  // Fee calculation: Base 1000 Tk + 500 Tk per guest
+  // Fee calculation: Base 1000 Tk + 1000 Tk per guest (Guests do not receive a t-shirt)
   const baseFee = 1000;
-  const guestFeePerPerson = 500;
+  const guestFeePerPerson = 1000;
   const totalGuestFee = formData.guestCount * guestFeePerPerson;
   const totalFee = baseFee + totalGuestFee;
 
@@ -409,7 +409,7 @@ export default function RegistrationForm() {
                   ))}
                 </div>
                 <p className="text-[11px] text-slate-500 mt-2">
-                  পুনর্মিলনী কিটের সাথে এই সাইজের অফিশিয়াল স্মরণিকা টি-শার্ট প্রদান করা হবে।
+                  পুনর্মিলনী কিটের সাথে নিবন্ধিত শিক্ষার্থীর জন্য এই সাইজের অফিশিয়াল স্মরণিকা টি-শার্ট প্রদান করা হবে (অতিথিরা টি-শার্ট পাবেন না)।
                 </p>
               </div>
 
@@ -419,10 +419,10 @@ export default function RegistrationForm() {
                   <div>
                     <label className="text-sm font-bold text-slate-900 flex items-center gap-2">
                       <Users className="w-4 h-4 text-amber-600" />
-                      অতিরিক্ত পরিবার সদস্য / অতিথি সংখ্যা (জন প্রতি ৫০০ টাকা)
+                      অতিরিক্ত পরিবার সদস্য / অতিথি সংখ্যা (জন প্রতি ১,০০০ টাকা)
                     </label>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      স্ত্রী/স্বামী বা সন্তান সাথে আনতে চাইলে সংখ্যা নির্বাচন করুন।
+                    <p className="text-xs text-amber-800 font-semibold mt-0.5">
+                      * অতিথিদের রেজিস্ট্রেশন ফি ১,০০০ টাকা। তবে তারা কোনো টি-শার্ট পাবেন না।
                     </p>
                   </div>
 
@@ -495,8 +495,9 @@ export default function RegistrationForm() {
                   </span>
                 </div>
               </div>
-              <div className="text-xs text-right bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700">
-                <p className="text-emerald-400 font-semibold">✓ উপহার ব্যাগ ও স্যুভনির</p>
+              <div className="text-xs text-right bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 space-y-0.5">
+                <p className="text-emerald-400 font-semibold">✓ শিক্ষার্থী টি-শার্ট ও উপহার ব্যাগ</p>
+                <p className="text-amber-300 text-[11px]">*(অতিথিরা টি-শার্ট পাবেন না)</p>
                 <p className="text-emerald-400 font-semibold">✓ গ্র্যান্ড বুফে ভোজ</p>
               </div>
             </div>
